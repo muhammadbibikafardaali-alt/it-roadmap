@@ -1,0 +1,1374 @@
+{
+  "tracks": [
+    {
+      "id": "frontend",
+      "name": "تطوير الواجهات الأمامية",
+      "icon": "🌐",
+      "desc": "HTML, CSS, JavaScript, React"
+    },
+    {
+      "id": "backend",
+      "name": "تطوير الخوادم",
+      "icon": "⚙️",
+      "desc": "Node.js, Python, APIs, Databases"
+    },
+    {
+      "id": "fullstack",
+      "name": "مطور Full Stack",
+      "icon": "🚀",
+      "desc": "Frontend + Backend معاً"
+    },
+    {
+      "id": "cyber",
+      "name": "الأمن السيبراني",
+      "icon": "🔒",
+      "desc": "Ethical Hacking, Security, Networks"
+    },
+    {
+      "id": "data",
+      "name": "علم البيانات",
+      "icon": "📊",
+      "desc": "Python, ML, AI, Analytics"
+    },
+    {
+      "id": "mobile",
+      "name": "تطوير تطبيقات الموبايل",
+      "icon": "📱",
+      "desc": "Flutter, React Native, Swift"
+    },
+    {
+      "id": "devops",
+      "name": "DevOps",
+      "icon": "🔄",
+      "desc": "Docker, CI/CD, Cloud, Linux"
+    },
+    {
+      "id": "network",
+      "name": "إدارة الشبكات",
+      "icon": "🌍",
+      "desc": "CCNA, Network+, Infrastructure"
+    }
+  ],
+  "roadmaps": {
+    "frontend": {
+      "beginner": [
+        {
+          "title": "أساسيات الويب",
+          "weeks": 4,
+          "items": [
+            "HTML5 — هيكلة صفحات الويب",
+            "CSS3 — تنسيق وتصميم",
+            "أساسيات JavaScript",
+            "مشروع: صفحة شخصية بسيطة"
+          ],
+          "resources": [
+            {
+              "name": "freeCodeCamp (مجاني)",
+              "url": "https://freecodecamp.org"
+            },
+            {
+              "name": "W3Schools",
+              "url": "https://w3schools.com"
+            },
+            {
+              "name": "MDN — مسار تعلم الويب",
+              "url": "https://developer.mozilla.org/en-US/docs/Learn"
+            }
+          ]
+        },
+        {
+          "title": "JavaScript متقدم",
+          "weeks": 6,
+          "items": [
+            "DOM Manipulation",
+            "ES6+ Features",
+            "Async/Await & Promises",
+            "مشروع: تطبيق قائمة مهام"
+          ],
+          "resources": [
+            {
+              "name": "JavaScript.info",
+              "url": "https://javascript.info"
+            },
+            {
+              "name": "Eloquent JavaScript (كتاب مجاني)",
+              "url": "https://eloquentjavascript.net"
+            },
+            {
+              "name": "🎥 Mosh — JavaScript for Beginners",
+              "url": "https://youtube.com/@programmingwithmosh"
+            },
+            {
+              "name": "Coursera — منح مجانية متاحة!",
+              "url": "https://coursera.org"
+            }
+          ]
+        },
+        {
+          "title": "إطار عمل React",
+          "weeks": 8,
+          "items": [
+            "React Fundamentals",
+            "Hooks & State Management",
+            "React Router",
+            "مشروع: تطبيق متجر إلكتروني"
+          ],
+          "resources": [
+            {
+              "name": "React Docs الرسمي",
+              "url": "https://react.dev"
+            },
+            {
+              "name": "🎥 Mosh — React Tutorial",
+              "url": "https://youtube.com/@programmingwithmosh"
+            },
+            {
+              "name": "Scrimba React Course",
+              "url": "https://scrimba.com"
+            }
+          ]
+        },
+        {
+          "title": "أدوات احترافية",
+          "weeks": 4,
+          "items": [
+            "Git & GitHub",
+            "Tailwind CSS",
+            "Testing Basics",
+            "بناء Portfolio احترافي"
+          ],
+          "resources": [
+            {
+              "name": "GitHub Skills — دورات Git تفاعلية مجانية",
+              "url": "https://skills.github.com"
+            },
+            {
+              "name": "Tailwind Docs",
+              "url": "https://tailwindcss.com"
+            }
+          ]
+        }
+      ],
+      "intermediate": [
+        {
+          "title": "React متقدم",
+          "weeks": 6,
+          "items": [
+            "Context API & Redux",
+            "Performance Optimization",
+            "Custom Hooks",
+            "مشروع: Dashboard تفاعلي"
+          ],
+          "resources": [
+            {
+              "name": "Epic React",
+              "url": "https://epicreact.dev"
+            },
+            {
+              "name": "Coursera — منح مجانية!",
+              "url": "https://coursera.org"
+            }
+          ]
+        },
+        {
+          "title": "TypeScript",
+          "weeks": 4,
+          "items": [
+            "TypeScript Basics",
+            "Types & Interfaces",
+            "Generics",
+            "React + TypeScript"
+          ],
+          "resources": [
+            {
+              "name": "TypeScript Handbook",
+              "url": "https://typescriptlang.org/docs"
+            }
+          ]
+        },
+        {
+          "title": "Next.js & SSR",
+          "weeks": 6,
+          "items": [
+            "Next.js Fundamentals",
+            "Server Components",
+            "API Routes",
+            "مشروع: مدونة كاملة"
+          ],
+          "resources": [
+            {
+              "name": "Next.js Docs",
+              "url": "https://nextjs.org/docs"
+            }
+          ]
+        },
+        {
+          "title": "تحضير للسوق",
+          "weeks": 4,
+          "items": [
+            "System Design Basics",
+            "Interview Preparation",
+            "Portfolio Projects",
+            "LinkedIn & CV Optimization"
+          ],
+          "resources": [
+            {
+              "name": "Frontend Masters",
+              "url": "https://frontendmasters.com"
+            },
+            {
+              "name": "LeetCode",
+              "url": "https://leetcode.com"
+            }
+          ]
+        }
+      ]
+    },
+    "cyber": {
+      "beginner": [
+        {
+          "title": "🐧 تجهيز بيئة العمل — Linux",
+          "weeks": 2,
+          "items": [
+            "نزّل Linux (Ubuntu أو Kali) على VM أو كلاود مجاني",
+            "تعلّم أساسيات سطر الأوامر (Terminal)",
+            "إدارة الملفات والمجلدات بـ Linux",
+            "تعلّم الصلاحيات والمستخدمين"
+          ],
+          "resources": [
+            {
+              "name": "🎥 شرح تنزيل واستخدام Linux",
+              "url": "https://youtu.be/sWbUDq4S6Y8"
+            },
+            {
+              "name": "TryHackMe — Linux Fundamentals",
+              "url": "https://tryhackme.com"
+            },
+            {
+              "name": "OverTheWire Bandit (تعلم بالممارسة)",
+              "url": "https://overthewire.org/wargames/bandit/"
+            }
+          ]
+        },
+        {
+          "title": "أساسيات الشبكات والأمان",
+          "weeks": 4,
+          "items": [
+            "TCP/IP Model & OSI Layers",
+            "Network Protocols (HTTP, DNS, DHCP)",
+            "أساسيات التشفير (Cryptography)",
+            "مختبر: تحليل ترافيك بـ Wireshark"
+          ],
+          "resources": [
+            {
+              "name": "🎥 NetworkChuck — دورات السايبر",
+              "url": "https://youtube.com/@networkchuck"
+            },
+            {
+              "name": "🎥 دورة أساسيات السايبر (عربي)",
+              "url": "https://youtube.com/playlist?list=PLh2Jy0nKL_j1WZMzITHgUuzaadpSULlMm"
+            },
+            {
+              "name": "Professor Messer (مجاني)",
+              "url": "https://professormesser.com"
+            },
+            {
+              "name": "Cisco Networking Academy",
+              "url": "https://skillsforall.com"
+            }
+          ]
+        },
+        {
+          "title": "🐍 البايثون للسايبر",
+          "weeks": 6,
+          "items": [
+            "أساسيات Python",
+            "التعامل مع الملفات والشبكات",
+            "كتابة أدوات بسيطة للأمان",
+            "مشروع: Port Scanner بالبايثون"
+          ],
+          "resources": [
+            {
+              "name": "🎥 بايثون بالعربي — الزيرو ويب سكول",
+              "url": "https://youtube.com/playlist?list=PLDoPjvoNmBAyE_gei5d18qkfIe-Z8mocs"
+            },
+            {
+              "name": "🎥 Harvard CS50 Python (مجاني)",
+              "url": "https://youtu.be/nLRL_NcnK-4"
+            },
+            {
+              "name": "🎥 بايثون للمبتدئين — freeCodeCamp",
+              "url": "https://youtu.be/WiYuS9ft78I"
+            },
+            {
+              "name": "Coursera Python — منح مجانية متاحة!",
+              "url": "https://coursera.org"
+            }
+          ]
+        },
+        {
+          "title": "الاختراق الأخلاقي",
+          "weeks": 8,
+          "items": [
+            "Kali Linux Tools",
+            "Reconnaissance & Scanning",
+            "Web App Security (OWASP Top 10)",
+            "مختبر: حل تحديات على TryHackMe"
+          ],
+          "resources": [
+            {
+              "name": "TryHackMe (مجاني للبداية)",
+              "url": "https://tryhackme.com"
+            },
+            {
+              "name": "Hack The Box",
+              "url": "https://hackthebox.com"
+            },
+            {
+              "name": "PortSwigger Academy (مجاني)",
+              "url": "https://portswigger.net/web-security"
+            },
+            {
+              "name": "Coursera Cybersecurity — منح مجانية!",
+              "url": "https://coursera.org"
+            }
+          ]
+        },
+        {
+          "title": "شهادات وتحضير للسوق",
+          "weeks": 6,
+          "items": [
+            "CompTIA Security+ تحضير",
+            "CEH Preparation",
+            "Bug Bounty — اكتشف ثغرات واربح مال",
+            "بناء Lab شخصي + Portfolio أمني"
+          ],
+          "resources": [
+            {
+              "name": "CompTIA Resources",
+              "url": "https://comptia.org"
+            },
+            {
+              "name": "HackerOne — Bug Bounty",
+              "url": "https://hackerone.com"
+            },
+            {
+              "name": "Coursera شهادات — منح مجانية!",
+              "url": "https://coursera.org"
+            }
+          ]
+        }
+      ],
+      "intermediate": [
+        {
+          "title": "اختبار الاختراق المتقدم",
+          "weeks": 6,
+          "items": [
+            "Advanced Exploitation",
+            "Privilege Escalation",
+            "Active Directory Attacks",
+            "مختبر: HTB Pro Labs"
+          ],
+          "resources": [
+            {
+              "name": "Hack The Box Pro Labs",
+              "url": "https://hackthebox.com"
+            },
+            {
+              "name": "🎥 NetworkChuck Advanced",
+              "url": "https://youtube.com/@networkchuck"
+            }
+          ]
+        },
+        {
+          "title": "أمن الشبكات والمراقبة",
+          "weeks": 4,
+          "items": [
+            "Firewall & IDS/IPS",
+            "SIEM Tools (Splunk, ELK)",
+            "Threat Hunting",
+            "مختبر: تحليل هجوم حقيقي"
+          ],
+          "resources": [
+            {
+              "name": "Splunk Free Training",
+              "url": "https://splunk.com"
+            },
+            {
+              "name": "Wireshark Docs",
+              "url": "https://wireshark.org"
+            }
+          ]
+        },
+        {
+          "title": "أمن التطبيقات والكلاود",
+          "weeks": 6,
+          "items": [
+            "Secure Coding",
+            "API Security Testing",
+            "Cloud Security (AWS/Azure)",
+            "مختبر: اكتشاف ثغرات حقيقية"
+          ],
+          "resources": [
+            {
+              "name": "PortSwigger Academy",
+              "url": "https://portswigger.net/web-security"
+            },
+            {
+              "name": "AWS Security Training",
+              "url": "https://aws.amazon.com/training/"
+            }
+          ]
+        },
+        {
+          "title": "شهادات متقدمة",
+          "weeks": 8,
+          "items": [
+            "OSCP Preparation",
+            "Cloud Security Certs",
+            "Incident Response",
+            "بناء Portfolio أمني"
+          ],
+          "resources": [
+            {
+              "name": "OffSec — شهادة OSCP",
+              "url": "https://www.offsec.com"
+            },
+            {
+              "name": "Coursera Advanced — منح مجانية!",
+              "url": "https://coursera.org"
+            }
+          ]
+        }
+      ]
+    },
+    "backend": {
+      "beginner": [
+        {
+          "title": "🐍 أساسيات البايثون",
+          "weeks": 5,
+          "items": [
+            "المتغيرات والشروط والحلقات",
+            "الدوال والـ OOP",
+            "التعامل مع الملفات",
+            "مشروع: برنامج إدارة مهام"
+          ],
+          "resources": [
+            {
+              "name": "🎥 بايثون بالعربي — الزيرو",
+              "url": "https://youtube.com/playlist?list=PLDoPjvoNmBAyE_gei5d18qkfIe-Z8mocs"
+            },
+            {
+              "name": "🎥 Mosh — Python Tutorial",
+              "url": "https://youtube.com/@programmingwithmosh"
+            },
+            {
+              "name": "🎥 Harvard CS50 Python",
+              "url": "https://youtu.be/nLRL_NcnK-4"
+            },
+            {
+              "name": "Coursera — منح مجانية!",
+              "url": "https://coursera.org"
+            }
+          ]
+        },
+        {
+          "title": "قواعد البيانات",
+          "weeks": 4,
+          "items": [
+            "SQL Fundamentals",
+            "PostgreSQL / MySQL",
+            "Database Design",
+            "مشروع: قاعدة بيانات لمتجر"
+          ],
+          "resources": [
+            {
+              "name": "SQLBolt (مجاني)",
+              "url": "https://sqlbolt.com"
+            },
+            {
+              "name": "freeCodeCamp SQL",
+              "url": "https://freecodecamp.org"
+            }
+          ]
+        },
+        {
+          "title": "بناء APIs",
+          "weeks": 6,
+          "items": [
+            "REST API Concepts",
+            "Flask / Django / Express",
+            "Authentication & JWT",
+            "مشروع: API لتطبيق مدونة"
+          ],
+          "resources": [
+            {
+              "name": "Django Docs",
+              "url": "https://djangoproject.com"
+            },
+            {
+              "name": "Express.js Guide",
+              "url": "https://expressjs.com"
+            }
+          ]
+        },
+        {
+          "title": "النشر والأدوات",
+          "weeks": 4,
+          "items": [
+            "Git & GitHub",
+            "Docker Basics",
+            "Cloud Deployment",
+            "بناء مشروع Backend كامل"
+          ],
+          "resources": [
+            {
+              "name": "Docker Getting Started",
+              "url": "https://docker.com/get-started"
+            },
+            {
+              "name": "Railway.app (مجاني)",
+              "url": "https://railway.app"
+            }
+          ]
+        }
+      ],
+      "intermediate": [
+        {
+          "title": "Backend متقدم",
+          "weeks": 6,
+          "items": [
+            "Microservices",
+            "Message Queues (Redis, RabbitMQ)",
+            "MongoDB & Redis",
+            "مشروع: نظام e-commerce"
+          ],
+          "resources": [
+            {
+              "name": "System Design Primer",
+              "url": "https://github.com/donnemartin/system-design-primer"
+            }
+          ]
+        },
+        {
+          "title": "DevOps Basics",
+          "weeks": 4,
+          "items": [
+            "CI/CD Pipelines",
+            "Docker Compose",
+            "Nginx & Load Balancing",
+            "مشروع: Pipeline كامل"
+          ],
+          "resources": [
+            {
+              "name": "GitHub Actions",
+              "url": "https://docs.github.com/en/actions"
+            }
+          ]
+        },
+        {
+          "title": "Cloud & Scaling",
+          "weeks": 6,
+          "items": [
+            "AWS / GCP Fundamentals",
+            "Serverless Functions",
+            "Caching Strategies",
+            "مشروع: Scalable App"
+          ],
+          "resources": [
+            {
+              "name": "AWS Free Tier",
+              "url": "https://aws.amazon.com/free/"
+            }
+          ]
+        },
+        {
+          "title": "تحضير للسوق",
+          "weeks": 4,
+          "items": [
+            "System Design Interview",
+            "Algorithms & DS",
+            "Portfolio & GitHub",
+            "LinkedIn Optimization"
+          ],
+          "resources": [
+            {
+              "name": "LeetCode",
+              "url": "https://leetcode.com"
+            },
+            {
+              "name": "NeetCode",
+              "url": "https://neetcode.io"
+            }
+          ]
+        }
+      ]
+    },
+    "data": {
+      "beginner": [
+        {
+          "title": "🐍 البايثون لعلم البيانات",
+          "weeks": 5,
+          "items": [
+            "أساسيات Python",
+            "NumPy & Pandas",
+            "تنظيف وتحليل البيانات",
+            "مشروع: تحليل بيانات حقيقية"
+          ],
+          "resources": [
+            {
+              "name": "🎥 بايثون — الزيرو",
+              "url": "https://youtube.com/playlist?list=PLDoPjvoNmBAyE_gei5d18qkfIe-Z8mocs"
+            },
+            {
+              "name": "Kaggle Learn (مجاني)",
+              "url": "https://kaggle.com/learn"
+            }
+          ]
+        },
+        {
+          "title": "التحليل والتصور",
+          "weeks": 4,
+          "items": [
+            "Matplotlib & Seaborn",
+            "Statistical Analysis",
+            "Data Storytelling",
+            "مشروع: Dashboard تحليلي"
+          ],
+          "resources": [
+            {
+              "name": "Coursera Data Science — منح مجانية!",
+              "url": "https://coursera.org"
+            }
+          ]
+        },
+        {
+          "title": "Machine Learning",
+          "weeks": 8,
+          "items": [
+            "Scikit-learn",
+            "Supervised & Unsupervised Learning",
+            "Model Evaluation",
+            "مشروع: نموذج تنبؤ"
+          ],
+          "resources": [
+            {
+              "name": "Andrew Ng ML (Coursera)",
+              "url": "https://coursera.org"
+            },
+            {
+              "name": "Fast.ai (مجاني)",
+              "url": "https://fast.ai"
+            }
+          ]
+        },
+        {
+          "title": "مشاريع وتحضير",
+          "weeks": 4,
+          "items": [
+            "Kaggle Competitions",
+            "SQL for Data Science",
+            "Portfolio Projects",
+            "LinkedIn & CV"
+          ],
+          "resources": [
+            {
+              "name": "Kaggle",
+              "url": "https://kaggle.com"
+            }
+          ]
+        }
+      ],
+      "intermediate": [
+        {
+          "title": "Deep Learning",
+          "weeks": 6,
+          "items": [
+            "Neural Networks",
+            "TensorFlow / PyTorch",
+            "CNNs & RNNs",
+            "مشروع: Image Classifier"
+          ],
+          "resources": [
+            {
+              "name": "Fast.ai Part 2",
+              "url": "https://fast.ai"
+            },
+            {
+              "name": "Coursera Deep Learning — منح!",
+              "url": "https://coursera.org"
+            }
+          ]
+        },
+        {
+          "title": "NLP & LLMs",
+          "weeks": 4,
+          "items": [
+            "Text Processing",
+            "Transformers",
+            "Hugging Face",
+            "مشروع: Chatbot"
+          ],
+          "resources": [
+            {
+              "name": "Hugging Face LLM Course (مجاني)",
+              "url": "https://huggingface.co/learn/llm-course"
+            }
+          ]
+        },
+        {
+          "title": "MLOps",
+          "weeks": 4,
+          "items": [
+            "Model Deployment",
+            "MLflow",
+            "Docker for ML",
+            "مشروع: ML Pipeline"
+          ],
+          "resources": [
+            {
+              "name": "MLOps Zoomcamp",
+              "url": "https://github.com/DataTalksClub/mlops-zoomcamp"
+            }
+          ]
+        },
+        {
+          "title": "تحضير للسوق",
+          "weeks": 4,
+          "items": [
+            "Kaggle Portfolio",
+            "Interview Prep",
+            "System Design for ML",
+            "Research Papers"
+          ],
+          "resources": [
+            {
+              "name": "Hugging Face Papers — أحدث الأبحاث",
+              "url": "https://huggingface.co/papers"
+            }
+          ]
+        }
+      ]
+    },
+    "fullstack": {
+      "beginner": [
+        {
+          "title": "أساسيات الويب",
+          "weeks": 4,
+          "items": [
+            "HTML5, CSS3, JavaScript",
+            "Responsive Design",
+            "Git & GitHub",
+            "مشروع: موقع شخصي"
+          ],
+          "resources": [
+            {
+              "name": "freeCodeCamp",
+              "url": "https://freecodecamp.org"
+            },
+            {
+              "name": "The Odin Project",
+              "url": "https://theodinproject.com"
+            }
+          ]
+        },
+        {
+          "title": "Frontend Framework",
+          "weeks": 6,
+          "items": [
+            "React Fundamentals",
+            "State Management",
+            "API Integration",
+            "مشروع: تطبيق تفاعلي"
+          ],
+          "resources": [
+            {
+              "name": "React Docs",
+              "url": "https://react.dev"
+            },
+            {
+              "name": "Coursera — منح مجانية!",
+              "url": "https://coursera.org"
+            }
+          ]
+        },
+        {
+          "title": "Backend + Database",
+          "weeks": 6,
+          "items": [
+            "Node.js & Express",
+            "MongoDB / PostgreSQL",
+            "REST APIs",
+            "مشروع: Full Stack App"
+          ],
+          "resources": [
+            {
+              "name": "The Odin Project — مسار Node.js",
+              "url": "https://www.theodinproject.com/paths/full-stack-javascript"
+            },
+            {
+              "name": "Express.js Guide",
+              "url": "https://expressjs.com"
+            },
+            {
+              "name": "MongoDB University (مجاني)",
+              "url": "https://learn.mongodb.com"
+            }
+          ]
+        },
+        {
+          "title": "النشر والتحضير",
+          "weeks": 4,
+          "items": [
+            "Docker Basics",
+            "Cloud Deployment",
+            "Testing",
+            "Portfolio كامل"
+          ],
+          "resources": [
+            {
+              "name": "Vercel",
+              "url": "https://vercel.com"
+            },
+            {
+              "name": "Railway",
+              "url": "https://railway.app"
+            }
+          ]
+        }
+      ],
+      "intermediate": [
+        {
+          "title": "Advanced Full Stack",
+          "weeks": 8,
+          "items": [
+            "Next.js",
+            "TypeScript",
+            "GraphQL",
+            "مشروع: SaaS App"
+          ],
+          "resources": [
+            {
+              "name": "Next.js Docs",
+              "url": "https://nextjs.org"
+            }
+          ]
+        },
+        {
+          "title": "Infrastructure",
+          "weeks": 4,
+          "items": [
+            "CI/CD",
+            "Docker & K8s",
+            "Cloud Services",
+            "مشروع: Scalable App"
+          ],
+          "resources": [
+            {
+              "name": "AWS Free Tier",
+              "url": "https://aws.amazon.com/free/"
+            }
+          ]
+        },
+        {
+          "title": "System Design",
+          "weeks": 4,
+          "items": [
+            "Architecture Patterns",
+            "Caching & Queues",
+            "DB Optimization",
+            "مشروع: Complex System"
+          ],
+          "resources": [
+            {
+              "name": "System Design Primer",
+              "url": "https://github.com/donnemartin/system-design-primer"
+            }
+          ]
+        },
+        {
+          "title": "تحضير للسوق",
+          "weeks": 4,
+          "items": [
+            "Interview Prep",
+            "Portfolio Polish",
+            "Open Source",
+            "Networking"
+          ],
+          "resources": [
+            {
+              "name": "LeetCode",
+              "url": "https://leetcode.com"
+            }
+          ]
+        }
+      ]
+    },
+    "mobile": {
+      "beginner": [
+        {
+          "title": "أساسيات البرمجة",
+          "weeks": 4,
+          "items": [
+            "Dart أو JavaScript",
+            "OOP Concepts",
+            "Version Control",
+            "مشروع: تطبيق حاسبة"
+          ],
+          "resources": [
+            {
+              "name": "Dart.dev",
+              "url": "https://dart.dev"
+            },
+            {
+              "name": "Coursera — منح مجانية!",
+              "url": "https://coursera.org"
+            }
+          ]
+        },
+        {
+          "title": "Flutter / React Native",
+          "weeks": 8,
+          "items": [
+            "Widgets & Layouts",
+            "State Management",
+            "Navigation",
+            "مشروع: تطبيق To-Do"
+          ],
+          "resources": [
+            {
+              "name": "Flutter Docs",
+              "url": "https://flutter.dev"
+            },
+            {
+              "name": "React Native Docs",
+              "url": "https://reactnative.dev"
+            }
+          ]
+        },
+        {
+          "title": "APIs والبيانات",
+          "weeks": 4,
+          "items": [
+            "REST API Integration",
+            "Local Storage",
+            "Firebase",
+            "مشروع: تطبيق أخبار"
+          ],
+          "resources": [
+            {
+              "name": "Firebase Docs",
+              "url": "https://firebase.google.com"
+            }
+          ]
+        },
+        {
+          "title": "النشر على المتاجر",
+          "weeks": 4,
+          "items": [
+            "App Store / Play Store",
+            "UI/UX Best Practices",
+            "Testing",
+            "نشر تطبيق حقيقي"
+          ],
+          "resources": [
+            {
+              "name": "Play Console",
+              "url": "https://play.google.com/console"
+            }
+          ]
+        }
+      ],
+      "intermediate": [
+        {
+          "title": "Advanced Mobile",
+          "weeks": 6,
+          "items": [
+            "Advanced State",
+            "Custom Animations",
+            "Platform Channels",
+            "مشروع: تطبيق متقدم"
+          ],
+          "resources": [
+            {
+              "name": "Flutter Advanced",
+              "url": "https://flutter.dev"
+            }
+          ]
+        },
+        {
+          "title": "Backend for Mobile",
+          "weeks": 4,
+          "items": [
+            "Firebase Advanced",
+            "Supabase",
+            "Push Notifications",
+            "مشروع: Real-time App"
+          ],
+          "resources": [
+            {
+              "name": "Supabase",
+              "url": "https://supabase.com"
+            }
+          ]
+        },
+        {
+          "title": "Performance & Testing",
+          "weeks": 4,
+          "items": [
+            "Performance Optimization",
+            "Unit & Integration Testing",
+            "CI/CD for Mobile",
+            "Production App"
+          ],
+          "resources": [
+            {
+              "name": "Codemagic",
+              "url": "https://codemagic.io"
+            }
+          ]
+        },
+        {
+          "title": "تحضير للسوق",
+          "weeks": 4,
+          "items": [
+            "Portfolio Apps",
+            "Freelance Platforms",
+            "Interview Prep",
+            "App Store Optimization"
+          ],
+          "resources": [
+            {
+              "name": "Upwork",
+              "url": "https://upwork.com"
+            }
+          ]
+        }
+      ]
+    },
+    "devops": {
+      "beginner": [
+        {
+          "title": "🐧 أساسيات Linux",
+          "weeks": 3,
+          "items": [
+            "تنزيل Linux على VM",
+            "Terminal وسطر الأوامر",
+            "إدارة الملفات والصلاحيات",
+            "Bash Scripting"
+          ],
+          "resources": [
+            {
+              "name": "🎥 شرح Linux",
+              "url": "https://youtu.be/sWbUDq4S6Y8"
+            },
+            {
+              "name": "Linux Journey",
+              "url": "https://linuxjourney.com"
+            }
+          ]
+        },
+        {
+          "title": "الشبكات و Git",
+          "weeks": 3,
+          "items": [
+            "Networking Basics",
+            "Git & GitHub",
+            "SSH & Keys",
+            "مختبر: Git Workflow"
+          ],
+          "resources": [
+            {
+              "name": "🎥 NetworkChuck",
+              "url": "https://youtube.com/@networkchuck"
+            },
+            {
+              "name": "GitHub Docs",
+              "url": "https://docs.github.com"
+            }
+          ]
+        },
+        {
+          "title": "Docker & Containers",
+          "weeks": 4,
+          "items": [
+            "Docker Fundamentals",
+            "Docker Compose",
+            "Container Networking",
+            "مشروع: Multi-container App"
+          ],
+          "resources": [
+            {
+              "name": "Docker Getting Started",
+              "url": "https://docker.com/get-started"
+            },
+            {
+              "name": "Coursera DevOps — منح مجانية!",
+              "url": "https://coursera.org"
+            }
+          ]
+        },
+        {
+          "title": "CI/CD & Cloud",
+          "weeks": 6,
+          "items": [
+            "GitHub Actions / Jenkins",
+            "AWS / GCP Basics",
+            "Terraform",
+            "مشروع: CI/CD Pipeline"
+          ],
+          "resources": [
+            {
+              "name": "AWS Free Tier",
+              "url": "https://aws.amazon.com/free/"
+            }
+          ]
+        },
+        {
+          "title": "Kubernetes وتحضير",
+          "weeks": 4,
+          "items": [
+            "Kubernetes Basics",
+            "Monitoring (Prometheus/Grafana)",
+            "Home Lab",
+            "شهادات: AWS/CKA"
+          ],
+          "resources": [
+            {
+              "name": "Kubernetes Docs",
+              "url": "https://kubernetes.io/docs/"
+            }
+          ]
+        }
+      ],
+      "intermediate": [
+        {
+          "title": "K8s متقدم",
+          "weeks": 6,
+          "items": [
+            "Helm Charts",
+            "Service Mesh",
+            "GitOps (ArgoCD)",
+            "مشروع: Production Cluster"
+          ],
+          "resources": [
+            {
+              "name": "CKA Prep",
+              "url": "https://kubernetes.io/docs/"
+            }
+          ]
+        },
+        {
+          "title": "IaC & Automation",
+          "weeks": 4,
+          "items": [
+            "Terraform Advanced",
+            "Ansible",
+            "Packer",
+            "مشروع: Full IaC"
+          ],
+          "resources": [
+            {
+              "name": "HashiCorp Developer — دروس Terraform",
+              "url": "https://developer.hashicorp.com/terraform/tutorials"
+            }
+          ]
+        },
+        {
+          "title": "Observability",
+          "weeks": 4,
+          "items": [
+            "ELK Stack",
+            "Prometheus",
+            "Jaeger Tracing",
+            "مشروع: Monitoring Stack"
+          ],
+          "resources": [
+            {
+              "name": "Grafana Academy",
+              "url": "https://grafana.com"
+            }
+          ]
+        },
+        {
+          "title": "SRE & Career",
+          "weeks": 4,
+          "items": [
+            "SRE Principles",
+            "Incident Management",
+            "Chaos Engineering",
+            "Interview Prep"
+          ],
+          "resources": [
+            {
+              "name": "Google SRE Book",
+              "url": "https://sre.google/sre-book/table-of-contents/"
+            }
+          ]
+        }
+      ]
+    },
+    "network": {
+      "beginner": [
+        {
+          "title": "🐧 أساسيات Linux",
+          "weeks": 2,
+          "items": [
+            "تنزيل Linux على VM",
+            "Terminal أساسيات",
+            "Network Tools (ping, traceroute)",
+            "إدارة الملفات"
+          ],
+          "resources": [
+            {
+              "name": "🎥 شرح Linux",
+              "url": "https://youtu.be/sWbUDq4S6Y8"
+            }
+          ]
+        },
+        {
+          "title": "أساسيات الشبكات",
+          "weeks": 6,
+          "items": [
+            "OSI & TCP/IP",
+            "IP Addressing & Subnetting",
+            "Routing & Switching",
+            "مختبر: Packet Tracer"
+          ],
+          "resources": [
+            {
+              "name": "🎥 NetworkChuck",
+              "url": "https://youtube.com/@networkchuck"
+            },
+            {
+              "name": "Cisco Networking Academy",
+              "url": "https://skillsforall.com"
+            },
+            {
+              "name": "Coursera Networking — منح مجانية!",
+              "url": "https://coursera.org"
+            }
+          ]
+        },
+        {
+          "title": "CCNA تحضير",
+          "weeks": 8,
+          "items": [
+            "VLANs & Trunking",
+            "OSPF & EIGRP",
+            "ACLs & NAT",
+            "مختبر: شبكة Enterprise"
+          ],
+          "resources": [
+            {
+              "name": "Jeremy's IT Lab (مجاني)",
+              "url": "https://youtube.com/@JeremysITLab"
+            },
+            {
+              "name": "Packet Tracer",
+              "url": "https://netacad.com"
+            }
+          ]
+        },
+        {
+          "title": "أمن الشبكات",
+          "weeks": 4,
+          "items": [
+            "Firewall Basics",
+            "VPN Configuration",
+            "Wireless Security",
+            "مختبر: تأمين شبكة"
+          ],
+          "resources": [
+            {
+              "name": "🎥 دورة أمن شبكات (عربي)",
+              "url": "https://youtube.com/playlist?list=PLh2Jy0nKL_j1WZMzITHgUuzaadpSULlMm"
+            }
+          ]
+        },
+        {
+          "title": "شهادات وتحضير",
+          "weeks": 4,
+          "items": [
+            "CCNA Exam Prep",
+            "CompTIA Network+",
+            "Home Lab",
+            "LinkedIn & CV"
+          ],
+          "resources": [
+            {
+              "name": "Boson Practice Exams",
+              "url": "https://boson.com"
+            }
+          ]
+        }
+      ],
+      "intermediate": [
+        {
+          "title": "Advanced Routing",
+          "weeks": 6,
+          "items": [
+            "BGP",
+            "MPLS",
+            "SD-WAN",
+            "مشروع: Multi-site"
+          ],
+          "resources": [
+            {
+              "name": "INE",
+              "url": "https://ine.com"
+            }
+          ]
+        },
+        {
+          "title": "Cloud Networking",
+          "weeks": 4,
+          "items": [
+            "AWS VPC",
+            "Azure Networking",
+            "Hybrid Cloud",
+            "مشروع: Cloud Architecture"
+          ],
+          "resources": [
+            {
+              "name": "AWS Free Tier",
+              "url": "https://aws.amazon.com/free/"
+            }
+          ]
+        },
+        {
+          "title": "Automation",
+          "weeks": 4,
+          "items": [
+            "Python for Networking",
+            "Ansible for Network",
+            "NETCONF/RESTCONF",
+            "Automated Config"
+          ],
+          "resources": [
+            {
+              "name": "Network Automation",
+              "url": "https://github.com/networktocode"
+            }
+          ]
+        },
+        {
+          "title": "CCNP و Career",
+          "weeks": 6,
+          "items": [
+            "CCNP Enterprise",
+            "Network Design",
+            "Troubleshooting",
+            "Interview Prep"
+          ],
+          "resources": [
+            {
+              "name": "Cisco Learning Network",
+              "url": "https://learningnetwork.cisco.com"
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

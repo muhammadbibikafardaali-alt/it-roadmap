@@ -27,14 +27,45 @@
 
 ```
 it-roadmap/
-├── index.html          ← الصفحة الرئيسية
-├── package.json        ← إعدادات المشروع
-├── vite.config.js      ← إعدادات Vite
-├── README.md           ← هالملف
-└── src/
-    ├── main.jsx        ← نقطة الدخول
-    └── App.jsx         ← المنصة الكاملة
+├── index.html                  ← الصفحة الرئيسية
+├── src/
+│   ├── App.jsx                 ← الويزارد + حفظ الخطة والتقدم + المشاركة
+│   ├── index.css               ← focus, hover, حركات, وستايل الطباعة
+│   ├── theme.js                ← الألوان
+│   ├── components/
+│   │   ├── Wizard.jsx          ← الأسئلة وشريط الخطوات
+│   │   ├── Result.jsx          ← الخطة: الملخص، المراحل، علامات التقدم، دليل الدراسة
+│   │   └── Guides.jsx          ← أقسام الـ AI، البومودورو، الإنجليزي، كورسيرا…
+│   ├── data/
+│   │   ├── roadmaps.json       ← كل محتوى المسارات (المراحل، الأسابيع، المواضيع، المصادر)
+│   │   └── options.js          ← خيارات الأسئلة
+│   └── lib/
+│       ├── plan.js             ← حساب المدة حسب ساعاتك، التقدم، روابط المشاركة
+│       ├── plan.test.js        ← اختبارات (node --test)
+│       ├── tips.js             ← النصائح المخصصة
+│       └── storage.js          ← localStorage آمن
+└── tools/
+    ├── check_roadmaps.py       ← فاحص محتوى بالبايثون
+    └── test_check_roadmaps.py  ← اختبارات الفاحص
 ```
+
+## 🛠️ للتطوير
+
+```bash
+npm install
+npm run dev        # تشغيل محلي
+npm run build      # بناء للنشر
+npm run lint       # ESLint
+npm test           # اختبارات منطق الخطة
+npm run check      # فحص roadmaps.json بالبايثون  (python3 tools/check_roadmaps.py --summary)
+npm run test:py    # اختبارات الفاحص
+python3 tools/check_roadmaps.py --links   # فحص كل الروابط (بيحتاج إنترنت)
+```
+
+### كيف تضيف أو تعدّل محتوى مسار
+1. عدّل `src/data/roadmaps.json` — كل مرحلة فيها `title` و `weeks` (رقم، محسوب على ~١٥ ساعة دراسة بالأسبوع) و `items` (٣–٨ مواضيع) و `resources` (اسم + رابط https).
+2. شغّل `npm run check` — لازم يطلع `0 error(s)`.
+3. الموقع بيحسب المدة الحقيقية لكل شخص حسب عدد ساعاته بالأسبوع.
 
 ## 💡 ملاحظات
 - المنصة بتشتغل بالكامل بدون سيرفر (Static Site)
