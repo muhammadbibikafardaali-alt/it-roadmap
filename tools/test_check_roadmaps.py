@@ -18,7 +18,10 @@ def phase(**over):
         "title": "Basics",
         "weeks": 4,
         "items": ["HTML", "CSS", "JavaScript"],
-        "resources": [{"name": "MDN", "url": "https://developer.mozilla.org/en-US/docs/Learn"}],
+        "resources": [
+            {"name": "MDN", "url": "https://developer.mozilla.org/en-US/docs/Learn"},
+            {"name": "web.dev", "url": "https://web.dev/learn"},
+        ],
     }
     base.update(over)
     return base
@@ -26,9 +29,11 @@ def phase(**over):
 
 def dataset():
     phases = [phase(title=f"P{i}") for i in range(4)]  # 16 weeks total
+    goal = phase(title="Goal", weeks=3, items=["Build {capstone}", "Search for {roles}", "Apply"])
     return {
-        "tracks": [{"id": "web", "name": "Web", "icon": "🌐", "desc": "HTML"}],
-        "roadmaps": {"web": {"beginner": phases, "intermediate": copy.deepcopy(phases)}},
+        "tracks": [{"id": "web", "name": "Web", "icon": "🌐", "desc": "HTML", "capstone": "a shop", "roles": "Web Dev"}],
+        "roadmaps": {"web": {lvl: copy.deepcopy(phases) for lvl in cr.REQUIRED_LEVELS}},
+        "goals": {g: copy.deepcopy(goal) for g in cr.GOAL_IDS},
     }
 
 
@@ -48,6 +53,46 @@ class CheckDataTests(unittest.TestCase):
         del data["roadmaps"]["web"]["intermediate"]
         report = cr.check_data(data)
         self.assertTrue(any("missing level 'intermediate'" in e for e in report.errors))
+
+    def test_advanced_level_is_required(self):
+        data = dataset()
+        del data["roadmaps"]["web"]["advanced"]
+        self.assertIn("web: missing level 'advanced'", cr.check_data(data).errors)
+
+    def test_every_wizard_goal_needs_a_goal_phase(self):
+        data = dataset()
+        del data["goals"]["freelance"]
+        self.assertIn("goals: missing goal 'freelance'", cr.check_data(data).errors)
+        del data["goals"]
+        self.assertTrue(any("missing 'goals'" in e for e in cr.check_data(data).errors))
+
+    def test_goal_phase_length_is_limited(self):
+        data = dataset()
+        data["goals"]["job"]["weeks"] = 8
+        self.assertTrue(any(e.startswith("goals/job: weeks=8") for e in cr.check_data(data).errors))
+
+    def test_placeholders(self):
+        data = dataset()
+        data["goals"]["skill"]["items"][0] = "Build {capstne}"
+        self.assertTrue(any("unknown placeholder {capstne}" in e for e in cr.check_data(data).errors))
+        data = dataset()
+        data["roadmaps"]["web"]["beginner"][0]["items"][0] = "Build {capstone}"
+        self.assertTrue(any("only work in goal phases" in e for e in cr.check_data(data).errors))
+
+    def test_track_needs_capstone_and_roles(self):
+        data = dataset()
+        del data["tracks"][0]["roles"]
+        self.assertTrue(any("missing 'roles'" in e for e in cr.check_data(data).errors))
+
+    def test_single_resource_and_arrows_are_warnings(self):
+        data = dataset()
+        first = data["roadmaps"]["web"]["beginner"][0]
+        first["resources"] = first["resources"][:1]
+        first["items"][0] = "Docker ← Kubernetes"
+        report = cr.check_data(data)
+        self.assertEqual(report.errors, [])
+        self.assertTrue(any("only one resource" in w for w in report.warnings))
+        self.assertTrue(any("arrow in topic" in w for w in report.warnings))
 
     def test_track_without_roadmap(self):
         data = dataset()
@@ -96,8 +141,10 @@ class CheckDataTests(unittest.TestCase):
         self.assertTrue(any("total 3 weeks" in w for w in report.warnings))
 
     def test_all_urls_is_unique_and_sorted(self):
-        urls = cr.all_urls(dataset())
-        self.assertEqual(urls, ["https://developer.mozilla.org/en-US/docs/Learn"])
+        data = dataset()
+        data["goals"]["job"]["resources"].append({"name": "Jobs", "url": "https://jobs.example.com"})
+        urls = cr.all_urls(data)
+        self.assertEqual(urls, ["https://developer.mozilla.org/en-US/docs/Learn", "https://jobs.example.com", "https://web.dev/learn"])
 
     def test_main_returns_1_on_bad_file(self):
         with tempfile.TemporaryDirectory() as tmpdir:
