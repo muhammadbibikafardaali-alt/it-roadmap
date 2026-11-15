@@ -134,6 +134,14 @@ export default function App() {
     setDone(false);
     setStep(0);
   };
+  // Finished the whole plan: continue with the next level, starting today.
+  const levelUp = (level) => {
+    clearUrl();
+    setShared(false);
+    setA((prev) => ({ ...prev, level }));
+    setStartDate(new Date().toISOString());
+    showToast("🚀 خطتك الجديدة جاهزة — بالتوفيق!");
+  };
   const toggle = (key) =>
     setProgress((p) => {
       const n = { ...p };
@@ -203,7 +211,7 @@ export default function App() {
                 </span>
               </div>
             )}
-            <Result a={a} tips={tips} done={progress} toggle={toggle} startDate={startDate} onShare={share} onPrint={() => window.print()} onEdit={edit} onRestart={restart} />
+            <Result a={a} tips={tips} done={progress} toggle={toggle} startDate={startDate} onShare={share} onPrint={() => window.print()} onEdit={edit} onRestart={restart} onLevelUp={levelUp} />
           </>
         )}
       </main>
