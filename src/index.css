@@ -1,0 +1,103 @@
+/* Shared styles that inline styles cannot do: focus, hover, motion, print. */
+
+:root {
+  --or: #f97316;
+  --card: #131c31;
+  --line: #334155;
+  --text: #e2e8f0;
+  --muted: #94a3b8;
+  --ok: #22c55e;
+  --font: "IBM Plex Sans Arabic", "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+  font-family: var(--font);
+  color: var(--text);
+  -webkit-font-smoothing: antialiased;
+}
+
+a, button, textarea { font-family: inherit; }
+
+/* Visible keyboard focus everywhere (was missing). */
+:focus-visible {
+  outline: 3px solid var(--or);
+  outline-offset: 3px;
+  border-radius: 12px;
+}
+
+.opt { transition: border-color 0.2s, background 0.2s, transform 0.15s; }
+.opt:hover { border-color: #fb923c !important; }
+.opt:active { transform: scale(0.98); }
+
+.res-link { transition: background 0.2s, transform 0.15s; }
+.res-link:hover { background: rgba(249, 115, 22, 0.22) !important; transform: translateX(-3px); }
+
+.btn { transition: transform 0.15s, box-shadow 0.2s, opacity 0.2s; }
+.btn:not(:disabled):hover { transform: translateY(-1px); }
+.btn:not(:disabled):active { transform: translateY(0) scale(0.98); }
+
+/* Step change: content slides in gently. */
+@keyframes stepIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: none; }
+}
+.step-in { animation: stepIn 0.35s ease-out both; }
+
+/* Background dots float slowly. */
+@keyframes floatDot {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-20px); }
+}
+
+/* Tick animation when a topic is checked. */
+@keyframes tickPop {
+  0% { transform: scale(0.4); }
+  70% { transform: scale(1.2); }
+  100% { transform: scale(1); }
+}
+.tick-on { animation: tickPop 0.25s ease-out; }
+
+.topic { transition: background 0.2s, color 0.2s; }
+.topic:hover { background: rgba(249, 115, 22, 0.08) !important; }
+.topic-done .topic-text { text-decoration: line-through; text-decoration-color: rgba(148, 163, 184, 0.6); color: var(--muted) !important; }
+
+.bar-fill { transition: width 0.5s ease; }
+
+.toast {
+  position: fixed; bottom: 24px; left: 0; right: 0; margin: 0 auto;
+  width: max-content; max-width: calc(100vw - 32px); text-align: center;
+  background: #1e293b; color: #fff; border: 1px solid var(--or);
+  padding: 12px 20px; border-radius: 99px; font-size: 14px; z-index: 50;
+  animation: stepIn 0.25s ease-out both; box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4);
+}
+
+.tabs { display: flex; gap: 6px; overflow-x: auto; padding-bottom: 4px; scrollbar-width: thin; }
+.tab { white-space: nowrap; }
+
+.stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; }
+@media (max-width: 640px) {
+  .stats { grid-template-columns: repeat(2, 1fr); }
+  .goal-grid { grid-template-columns: 1fr !important; }
+  .pomo-grid { grid-template-columns: repeat(2, 1fr) !important; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Print / "save as PDF": clean, light, everything expanded. */
+@media print {
+  body { background: #fff !important; color: #000 !important; }
+  .no-print, .particles { display: none !important; }
+  .guide-panel[hidden] { display: block !important; }
+  .app-shell { background: #fff !important; }
+  .print-card { background: #fff !important; border-color: #ccc !important; break-inside: avoid; }
+  .app-shell, .app-shell * { color: #111 !important; }
+  .print-card header, .app-shell header > div { background: #f1f5f9 !important; }
+  .res-link { color: #9a3412 !important; }
+  .res-link::after { content: " — " attr(href); font-size: 11px; color: #555 !important; }
+}
