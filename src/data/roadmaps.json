@@ -4,49 +4,65 @@
       "id": "frontend",
       "name": "تطوير الواجهات الأمامية",
       "icon": "🌐",
-      "desc": "HTML, CSS, JavaScript, React"
+      "desc": "HTML, CSS, JavaScript, React",
+      "capstone": "متجر أو لوحة تحكم كاملة، متجاوبة ومنشورة على Vercel",
+      "roles": "Frontend Developer · React Developer · UI Engineer"
     },
     {
       "id": "backend",
       "name": "تطوير الخوادم",
       "icon": "⚙️",
-      "desc": "Node.js, Python, APIs, Databases"
+      "desc": "Node.js, Python, APIs, Databases",
+      "capstone": "API لحجز المواعيد فيه تسجيل دخول وقاعدة بيانات واختبارات، ومنشور أونلاين",
+      "roles": "Backend Developer · Python / Node.js Developer · API Engineer"
     },
     {
       "id": "fullstack",
       "name": "مطور Full Stack",
       "icon": "🚀",
-      "desc": "Frontend + Backend معاً"
+      "desc": "Frontend + Backend معاً",
+      "capstone": "تطبيق SaaS صغير فيه تسجيل دخول واشتراك تجريبي، ومنشور لمستخدمين حقيقيين",
+      "roles": "Full Stack Developer · Software Engineer · Web Developer"
     },
     {
       "id": "cyber",
       "name": "الأمن السيبراني",
       "icon": "🔒",
-      "desc": "Ethical Hacking, Security, Networks"
+      "desc": "Ethical Hacking, Security, Networks",
+      "capstone": "Home Lab موثّق مع ٣ تقارير (write-ups) منشورة لتحديات حليتها",
+      "roles": "SOC Analyst · Junior Penetration Tester · Security Analyst"
     },
     {
       "id": "data",
       "name": "علم البيانات",
       "icon": "📊",
-      "desc": "Python, ML, AI, Analytics"
+      "desc": "Python, ML, AI, Analytics",
+      "capstone": "تحليل أو نموذج على بيانات عربية حقيقية مع Notebook وتقرير واضح",
+      "roles": "Data Analyst · Junior Data Scientist · ML Engineer"
     },
     {
       "id": "mobile",
       "name": "تطوير تطبيقات الموبايل",
       "icon": "📱",
-      "desc": "Flutter, React Native, Swift"
+      "desc": "Flutter, React Native, Swift",
+      "capstone": "تطبيق منشور على Google Play أو App Store",
+      "roles": "Flutter Developer · React Native Developer · Mobile Developer"
     },
     {
       "id": "devops",
       "name": "DevOps",
       "icon": "🔄",
-      "desc": "Docker, CI/CD, Cloud, Linux"
+      "desc": "Docker, CI/CD, Cloud, Linux",
+      "capstone": "Pipeline كامل من الكود للاختبارات لـ Docker لـ Kubernetes، مع مراقبة",
+      "roles": "DevOps Engineer · Cloud Engineer · Site Reliability Engineer"
     },
     {
       "id": "network",
       "name": "إدارة الشبكات",
       "icon": "🌍",
-      "desc": "CCNA, Network+, Infrastructure"
+      "desc": "CCNA, Network+, Infrastructure",
+      "capstone": "مختبر شبكة شركة موثّق بالرسومات على Packet Tracer أو GNS3",
+      "roles": "Network Engineer · NOC Engineer · Network Administrator"
     }
   ],
   "roadmaps": {
@@ -183,6 +199,10 @@
             {
               "name": "TypeScript Handbook",
               "url": "https://typescriptlang.org/docs"
+            },
+            {
+              "name": "Total TypeScript (تمارين مجانية)",
+              "url": "https://www.totaltypescript.com"
             }
           ]
         },
@@ -199,17 +219,21 @@
             {
               "name": "Next.js Docs",
               "url": "https://nextjs.org/docs"
+            },
+            {
+              "name": "Next.js Learn — دورة رسمية مجانية",
+              "url": "https://nextjs.org/learn"
             }
           ]
         },
         {
-          "title": "تحضير للسوق",
+          "title": "الجودة و System Design",
           "weeks": 4,
           "items": [
-            "System Design Basics",
-            "Interview Preparation",
-            "Portfolio Projects",
-            "LinkedIn & CV Optimization"
+            "Frontend System Design Basics",
+            "اختبارات بـ Vitest و Testing Library",
+            "Accessibility أساسيات (a11y)",
+            "مشروع كبير للـ Portfolio مع اختبارات"
           ],
           "resources": [
             {
@@ -217,8 +241,102 @@
               "url": "https://frontendmasters.com"
             },
             {
-              "name": "LeetCode",
-              "url": "https://leetcode.com"
+              "name": "Testing Library Docs",
+              "url": "https://testing-library.com/docs/"
+            }
+          ]
+        }
+      ],
+      "advanced": [
+        {
+          "title": "معمارية تطبيقات الواجهة",
+          "weeks": 6,
+          "items": [
+            "Design Systems (Storybook + Design Tokens)",
+            "Server state مقابل client state (TanStack Query)",
+            "Monorepos و Micro-frontends",
+            "مشروع: Design System صغير منشور على npm"
+          ],
+          "resources": [
+            {
+              "name": "Storybook Docs",
+              "url": "https://storybook.js.org/docs"
+            },
+            {
+              "name": "TanStack Query Docs",
+              "url": "https://tanstack.com/query/latest"
+            },
+            {
+              "name": "Patterns.dev (كتاب مجاني)",
+              "url": "https://www.patterns.dev"
+            }
+          ]
+        },
+        {
+          "title": "الأداء و Core Web Vitals",
+          "weeks": 5,
+          "items": [
+            "LCP و INP و CLS وقياسها بـ Lighthouse",
+            "Code Splitting و Lazy Loading",
+            "SSR و SSG و Streaming — إمتى تستعمل كل وحدة",
+            "مشروع: رفع Lighthouse لموقع حقيقي فوق ٩٠"
+          ],
+          "resources": [
+            {
+              "name": "web.dev — Learn Performance",
+              "url": "https://web.dev/learn/performance"
+            },
+            {
+              "name": "Chrome DevTools Docs",
+              "url": "https://developer.chrome.com/docs/devtools"
+            }
+          ]
+        },
+        {
+          "title": "الجودة: اختبارات E2E و Accessibility",
+          "weeks": 5,
+          "items": [
+            "E2E Testing بـ Playwright",
+            "WCAG 2.2 و ARIA بعمق",
+            "Visual Regression Testing",
+            "CI بيشغّل كل الاختبارات على كل Pull Request"
+          ],
+          "resources": [
+            {
+              "name": "Playwright Docs",
+              "url": "https://playwright.dev/docs/intro"
+            },
+            {
+              "name": "web.dev — Learn Accessibility",
+              "url": "https://web.dev/learn/accessibility"
+            },
+            {
+              "name": "GitHub Actions Docs",
+              "url": "https://docs.github.com/en/actions"
+            }
+          ]
+        },
+        {
+          "title": "الأمان والقيادة التقنية",
+          "weeks": 6,
+          "items": [
+            "Web Security: XSS و CSP و CORS",
+            "Frontend System Design على مستوى Senior",
+            "Code Review وتوجيه المبتدئين",
+            "مساهمة بمشروع Open Source معروف"
+          ],
+          "resources": [
+            {
+              "name": "OWASP Cheat Sheet Series",
+              "url": "https://cheatsheetseries.owasp.org"
+            },
+            {
+              "name": "GreatFrontEnd — System Design",
+              "url": "https://www.greatfrontend.com"
+            },
+            {
+              "name": "First Contributions",
+              "url": "https://github.com/firstcontributions/first-contributions"
             }
           ]
         }
@@ -440,6 +558,100 @@
             }
           ]
         }
+      ],
+      "advanced": [
+        {
+          "title": "Red Team ومحاكاة المهاجمين",
+          "weeks": 7,
+          "items": [
+            "Adversary Emulation بـ MITRE ATT&CK",
+            "C2 Frameworks (Sliver) بمختبر خاص",
+            "Active Directory متقدم (Kerberoasting, ADCS)",
+            "مختبر: سيناريو Red Team كامل مع تقرير"
+          ],
+          "resources": [
+            {
+              "name": "MITRE ATT&CK",
+              "url": "https://attack.mitre.org"
+            },
+            {
+              "name": "HTB Academy",
+              "url": "https://academy.hackthebox.com"
+            },
+            {
+              "name": "The Hacker Recipes",
+              "url": "https://www.thehacker.recipes"
+            }
+          ]
+        },
+        {
+          "title": "Blue Team و DFIR",
+          "weeks": 6,
+          "items": [
+            "Detection Engineering (Sigma Rules)",
+            "Memory Forensics (Volatility)",
+            "Incident Response Playbooks",
+            "مختبر: تحقيق باختراق محاكى"
+          ],
+          "resources": [
+            {
+              "name": "Sigma Rules",
+              "url": "https://github.com/SigmaHQ/sigma"
+            },
+            {
+              "name": "CyberDefenders (تحديات Blue Team)",
+              "url": "https://cyberdefenders.org"
+            },
+            {
+              "name": "Volatility Foundation",
+              "url": "https://volatilityfoundation.org"
+            }
+          ]
+        },
+        {
+          "title": "أبحاث الثغرات",
+          "weeks": 6,
+          "items": [
+            "Reverse Engineering بـ Ghidra",
+            "Binary Exploitation: Buffer Overflow و ROP",
+            "Fuzzing",
+            "كتابة تقرير ثغرة احترافي"
+          ],
+          "resources": [
+            {
+              "name": "pwn.college (مجاني)",
+              "url": "https://pwn.college"
+            },
+            {
+              "name": "Ghidra",
+              "url": "https://ghidra-sre.org"
+            }
+          ]
+        },
+        {
+          "title": "أمن الكلاود والقيادة",
+          "weeks": 5,
+          "items": [
+            "Cloud Pentesting (أخطاء IAM)",
+            "Kubernetes Security",
+            "Threat Modeling (STRIDE)",
+            "شهادات متقدمة: OSEP أو GIAC"
+          ],
+          "resources": [
+            {
+              "name": "flAWS — تحدي أمن AWS",
+              "url": "https://flaws.cloud"
+            },
+            {
+              "name": "CloudGoat",
+              "url": "https://github.com/RhinoSecurityLabs/cloudgoat"
+            },
+            {
+              "name": "OffSec",
+              "url": "https://www.offsec.com"
+            }
+          ]
+        }
       ]
     },
     "backend": {
@@ -547,6 +759,10 @@
             {
               "name": "System Design Primer",
               "url": "https://github.com/donnemartin/system-design-primer"
+            },
+            {
+              "name": "Microservices.io — أنماط جاهزة",
+              "url": "https://microservices.io"
             }
           ]
         },
@@ -563,6 +779,10 @@
             {
               "name": "GitHub Actions",
               "url": "https://docs.github.com/en/actions"
+            },
+            {
+              "name": "Docker Compose Docs",
+              "url": "https://docs.docker.com/compose/"
             }
           ]
         },
@@ -579,17 +799,21 @@
             {
               "name": "AWS Free Tier",
               "url": "https://aws.amazon.com/free/"
+            },
+            {
+              "name": "AWS Skill Builder (دورات مجانية)",
+              "url": "https://skillbuilder.aws"
             }
           ]
         },
         {
-          "title": "تحضير للسوق",
+          "title": "الخوارزميات وتصميم الأنظمة",
           "weeks": 4,
           "items": [
-            "System Design Interview",
-            "Algorithms & DS",
-            "Portfolio & GitHub",
-            "LinkedIn Optimization"
+            "Algorithms & Data Structures",
+            "System Design Basics",
+            "اختبارات بـ pytest أو Jest",
+            "مشروع: خدمة كاملة مع اختبارات"
           ],
           "resources": [
             {
@@ -599,6 +823,104 @@
             {
               "name": "NeetCode",
               "url": "https://neetcode.io"
+            },
+            {
+              "name": "pytest Docs",
+              "url": "https://docs.pytest.org"
+            }
+          ]
+        }
+      ],
+      "advanced": [
+        {
+          "title": "الأنظمة الموزعة",
+          "weeks": 7,
+          "items": [
+            "CAP و Consistency Models",
+            "Event-Driven Architecture (Kafka)",
+            "Idempotency و Retries و Sagas",
+            "مشروع: نظام طلبات بخدمات منفصلة وأحداث"
+          ],
+          "resources": [
+            {
+              "name": "Designing Data-Intensive Applications (كتاب)",
+              "url": "https://dataintensive.net"
+            },
+            {
+              "name": "Apache Kafka Docs",
+              "url": "https://kafka.apache.org/documentation/"
+            },
+            {
+              "name": "Microservices.io",
+              "url": "https://microservices.io"
+            }
+          ]
+        },
+        {
+          "title": "قواعد البيانات بعمق",
+          "weeks": 5,
+          "items": [
+            "Indexes و EXPLAIN ANALYZE",
+            "Transactions و Isolation Levels",
+            "Replication و Sharding",
+            "مختبر: سرّع Query بطيئة ١٠ مرات"
+          ],
+          "resources": [
+            {
+              "name": "Use The Index, Luke (مجاني)",
+              "url": "https://use-the-index-luke.com"
+            },
+            {
+              "name": "PostgreSQL Docs",
+              "url": "https://www.postgresql.org/docs/current/"
+            }
+          ]
+        },
+        {
+          "title": "الأمان والموثوقية",
+          "weeks": 5,
+          "items": [
+            "OWASP API Security Top 10",
+            "OAuth 2.0 و OpenID Connect",
+            "Rate Limiting و Circuit Breakers",
+            "Observability: Logs و Metrics و Traces (OpenTelemetry)"
+          ],
+          "resources": [
+            {
+              "name": "OWASP API Security",
+              "url": "https://owasp.org/API-Security/"
+            },
+            {
+              "name": "OAuth 2.0 — oauth.net",
+              "url": "https://oauth.net/2/"
+            },
+            {
+              "name": "OpenTelemetry Docs",
+              "url": "https://opentelemetry.io/docs/"
+            }
+          ]
+        },
+        {
+          "title": "الأداء والتوسع",
+          "weeks": 5,
+          "items": [
+            "Profiling و Load Testing (k6)",
+            "طبقات الـ Caching و CDN",
+            "gRPC و API Versioning",
+            "مشروع: API بيتحمل ١٠٠٠ طلب بالثانية مع تقرير"
+          ],
+          "resources": [
+            {
+              "name": "Grafana k6 Docs",
+              "url": "https://grafana.com/docs/k6/latest/"
+            },
+            {
+              "name": "gRPC Docs",
+              "url": "https://grpc.io/docs/"
+            },
+            {
+              "name": "ByteByteGo — System Design",
+              "url": "https://bytebytego.com"
             }
           ]
         }
@@ -639,6 +961,10 @@
             {
               "name": "Coursera Data Science — منح مجانية!",
               "url": "https://coursera.org"
+            },
+            {
+              "name": "Kaggle Learn — Data Visualization",
+              "url": "https://www.kaggle.com/learn/data-visualization"
             }
           ]
         },
@@ -668,13 +994,17 @@
           "items": [
             "Kaggle Competitions",
             "SQL for Data Science",
-            "Portfolio Projects",
-            "LinkedIn & CV"
+            "Git & GitHub لمشاريعك",
+            "Portfolio Projects"
           ],
           "resources": [
             {
               "name": "Kaggle",
               "url": "https://kaggle.com"
+            },
+            {
+              "name": "SQLZoo (تمارين SQL مجانية)",
+              "url": "https://sqlzoo.net"
             }
           ]
         }
@@ -713,6 +1043,10 @@
             {
               "name": "Hugging Face LLM Course (مجاني)",
               "url": "https://huggingface.co/learn/llm-course"
+            },
+            {
+              "name": "The Illustrated Transformer — شرح مصوّر",
+              "url": "https://jalammar.github.io/illustrated-transformer/"
             }
           ]
         },
@@ -729,21 +1063,127 @@
             {
               "name": "MLOps Zoomcamp",
               "url": "https://github.com/DataTalksClub/mlops-zoomcamp"
+            },
+            {
+              "name": "Made With ML (مجاني)",
+              "url": "https://madewithml.com"
             }
           ]
         },
         {
-          "title": "تحضير للسوق",
+          "title": "SQL متقدم وتصميم أنظمة ML",
           "weeks": 4,
           "items": [
-            "Kaggle Portfolio",
-            "Interview Prep",
+            "Advanced SQL (Window Functions)",
             "System Design for ML",
-            "Research Papers"
+            "قراءة ورقة بحثية وتطبيقها",
+            "Kaggle Portfolio"
           ],
           "resources": [
             {
               "name": "Hugging Face Papers — أحدث الأبحاث",
+              "url": "https://huggingface.co/papers"
+            },
+            {
+              "name": "SQLZoo (تمارين SQL مجانية)",
+              "url": "https://sqlzoo.net"
+            },
+            {
+              "name": "Kaggle",
+              "url": "https://kaggle.com"
+            }
+          ]
+        }
+      ],
+      "advanced": [
+        {
+          "title": "LLMs و RAG",
+          "weeks": 6,
+          "items": [
+            "Embeddings و Vector Databases",
+            "RAG Pipelines",
+            "Fine-tuning بـ LoRA",
+            "مشروع: مساعد بيجاوب من وثائق عربية"
+          ],
+          "resources": [
+            {
+              "name": "Hugging Face LLM Course",
+              "url": "https://huggingface.co/learn/llm-course"
+            },
+            {
+              "name": "Hugging Face PEFT Docs",
+              "url": "https://huggingface.co/docs/peft"
+            },
+            {
+              "name": "Prompt Engineering Guide",
+              "url": "https://www.promptingguide.ai"
+            }
+          ]
+        },
+        {
+          "title": "تقييم النماذج وموثوقيتها",
+          "weeks": 5,
+          "items": [
+            "LLM Evaluation و Benchmarks",
+            "Hallucinations و Guardrails",
+            "Bias و Fairness",
+            "مشروع: Eval Suite لنموذجك"
+          ],
+          "resources": [
+            {
+              "name": "Hugging Face Evaluate",
+              "url": "https://huggingface.co/docs/evaluate"
+            },
+            {
+              "name": "Made With ML",
+              "url": "https://madewithml.com"
+            }
+          ]
+        },
+        {
+          "title": "هندسة البيانات للـ ML",
+          "weeks": 5,
+          "items": [
+            "Data Pipelines (Airflow أو dbt)",
+            "Spark للبيانات الكبيرة",
+            "Feature Stores",
+            "مشروع: Pipeline يومي بيغذّي نموذج"
+          ],
+          "resources": [
+            {
+              "name": "Data Engineering Zoomcamp (مجاني)",
+              "url": "https://github.com/DataTalksClub/data-engineering-zoomcamp"
+            },
+            {
+              "name": "dbt Docs",
+              "url": "https://docs.getdbt.com"
+            },
+            {
+              "name": "Apache Spark Docs",
+              "url": "https://spark.apache.org/docs/latest/"
+            }
+          ]
+        },
+        {
+          "title": "النشر والتوسع",
+          "weeks": 6,
+          "items": [
+            "Model Serving (vLLM)",
+            "Quantization و Optimization",
+            "مراقبة الـ Drift بالإنتاج",
+            "قراءة ورقة بحثية جديدة وإعادة تطبيقها"
+          ],
+          "resources": [
+            {
+              "name": "vLLM Docs",
+              "url": "https://docs.vllm.ai"
+            },
+            {
+              "name": "Full Stack Deep Learning",
+              "url": "https://fullstackdeeplearning.com"
+            },
+            {
+              "name": "Hugging Face Papers",
               "url": "https://huggingface.co/papers"
             }
           ]
@@ -851,6 +1291,10 @@
             {
               "name": "Next.js Docs",
               "url": "https://nextjs.org"
+            },
+            {
+              "name": "TypeScript Handbook",
+              "url": "https://typescriptlang.org/docs"
             }
           ]
         },
@@ -867,6 +1311,10 @@
             {
               "name": "AWS Free Tier",
               "url": "https://aws.amazon.com/free/"
+            },
+            {
+              "name": "Kubernetes Docs",
+              "url": "https://kubernetes.io/docs/"
             }
           ]
         },
@@ -883,22 +1331,120 @@
             {
               "name": "System Design Primer",
               "url": "https://github.com/donnemartin/system-design-primer"
+            },
+            {
+              "name": "ByteByteGo — System Design",
+              "url": "https://bytebytego.com"
             }
           ]
         },
         {
-          "title": "تحضير للسوق",
+          "title": "الجودة والأمان",
           "weeks": 4,
           "items": [
-            "Interview Prep",
-            "Portfolio Polish",
-            "Open Source",
-            "Networking"
+            "Testing: Unit + E2E",
+            "Security أساسيات (OWASP Top 10)",
+            "مساهمة Open Source",
+            "Portfolio Polish"
           ],
           "resources": [
             {
-              "name": "LeetCode",
-              "url": "https://leetcode.com"
+              "name": "OWASP Top 10",
+              "url": "https://owasp.org/www-project-top-ten/"
+            },
+            {
+              "name": "Playwright Docs",
+              "url": "https://playwright.dev/docs/intro"
+            }
+          ]
+        }
+      ],
+      "advanced": [
+        {
+          "title": "معمارية SaaS",
+          "weeks": 7,
+          "items": [
+            "Multi-tenancy",
+            "Auth و Roles (RBAC)",
+            "الدفع و Webhooks (Stripe)",
+            "مشروع: SaaS فيه اشتراكات (Test Mode)"
+          ],
+          "resources": [
+            {
+              "name": "Stripe Docs",
+              "url": "https://docs.stripe.com"
+            },
+            {
+              "name": "Auth.js Docs",
+              "url": "https://authjs.dev"
+            },
+            {
+              "name": "Next.js Docs",
+              "url": "https://nextjs.org/docs"
+            }
+          ]
+        },
+        {
+          "title": "البيانات والأداء",
+          "weeks": 5,
+          "items": [
+            "ORM و Migrations (Prisma أو Drizzle)",
+            "Caching بـ Redis و HTTP Cache",
+            "Background Jobs و Queues",
+            "Serverless و Edge — المزايا والحدود"
+          ],
+          "resources": [
+            {
+              "name": "Prisma Docs",
+              "url": "https://www.prisma.io/docs"
+            },
+            {
+              "name": "Redis Docs",
+              "url": "https://redis.io/docs/latest/"
+            }
+          ]
+        },
+        {
+          "title": "التسليم والمراقبة",
+          "weeks": 5,
+          "items": [
+            "Testing Pyramid: Unit و Integration و E2E",
+            "Preview Deployments و Feature Flags",
+            "Error Tracking و Monitoring (Sentry)",
+            "CI/CD كامل مع Rollback"
+          ],
+          "resources": [
+            {
+              "name": "Playwright Docs",
+              "url": "https://playwright.dev/docs/intro"
+            },
+            {
+              "name": "Sentry Docs",
+              "url": "https://docs.sentry.io"
+            },
+            {
+              "name": "GitHub Actions Docs",
+              "url": "https://docs.github.com/en/actions"
+            }
+          ]
+        },
+        {
+          "title": "المنتج والقيادة",
+          "weeks": 5,
+          "items": [
+            "System Design على مستوى Senior",
+            "Security Review لتطبيقك",
+            "Product Analytics و A/B Testing",
+            "إطلاق منتج لمستخدمين حقيقيين"
+          ],
+          "resources": [
+            {
+              "name": "System Design Primer",
+              "url": "https://github.com/donnemartin/system-design-primer"
+            },
+            {
+              "name": "OWASP Cheat Sheet Series",
+              "url": "https://cheatsheetseries.owasp.org"
             }
           ]
         }
@@ -959,6 +1505,10 @@
             {
               "name": "Firebase Docs",
               "url": "https://firebase.google.com"
+            },
+            {
+              "name": "Flutter Cookbook — Fetch data",
+              "url": "https://docs.flutter.dev/cookbook/networking/fetch-data"
             }
           ]
         },
@@ -975,6 +1525,10 @@
             {
               "name": "Play Console",
               "url": "https://play.google.com/console"
+            },
+            {
+              "name": "App Store Connect Help",
+              "url": "https://developer.apple.com/help/app-store-connect/"
             }
           ]
         }
@@ -993,6 +1547,10 @@
             {
               "name": "Flutter Advanced",
               "url": "https://flutter.dev"
+            },
+            {
+              "name": "Flutter Codelabs",
+              "url": "https://docs.flutter.dev/codelabs"
             }
           ]
         },
@@ -1009,6 +1567,10 @@
             {
               "name": "Supabase",
               "url": "https://supabase.com"
+            },
+            {
+              "name": "Firebase Docs",
+              "url": "https://firebase.google.com/docs"
             }
           ]
         },
@@ -1025,22 +1587,116 @@
             {
               "name": "Codemagic",
               "url": "https://codemagic.io"
+            },
+            {
+              "name": "Flutter Testing Docs",
+              "url": "https://docs.flutter.dev/testing"
             }
           ]
         },
         {
-          "title": "تحضير للسوق",
+          "title": "تطبيق جاهز للإنتاج",
           "weeks": 4,
           "items": [
             "Portfolio Apps",
-            "Freelance Platforms",
-            "Interview Prep",
-            "App Store Optimization"
+            "App Store Optimization (ASO)",
+            "Analytics & Crash Reporting",
+            "Accessibility على الموبايل"
           ],
           "resources": [
             {
-              "name": "Upwork",
-              "url": "https://upwork.com"
+              "name": "Firebase Crashlytics",
+              "url": "https://firebase.google.com/docs/crashlytics"
+            },
+            {
+              "name": "Android — Accessibility Guide",
+              "url": "https://developer.android.com/guide/topics/ui/accessibility"
+            }
+          ]
+        }
+      ],
+      "advanced": [
+        {
+          "title": "معمارية التطبيقات",
+          "weeks": 6,
+          "items": [
+            "Clean Architecture و MVVM",
+            "Dependency Injection",
+            "Modularization",
+            "مشروع: إعادة هيكلة تطبيق قديم"
+          ],
+          "resources": [
+            {
+              "name": "Android — Guide to App Architecture",
+              "url": "https://developer.android.com/topic/architecture"
+            },
+            {
+              "name": "Flutter — App Architecture",
+              "url": "https://docs.flutter.dev/app-architecture"
+            }
+          ]
+        },
+        {
+          "title": "Native بعمق",
+          "weeks": 6,
+          "items": [
+            "Kotlin و Jetpack Compose",
+            "Swift و SwiftUI",
+            "Native Modules و Platform Channels",
+            "مشروع: ميزة Native (كاميرا أو حساسات)"
+          ],
+          "resources": [
+            {
+              "name": "Android Developers — Courses",
+              "url": "https://developer.android.com/courses"
+            },
+            {
+              "name": "Apple — SwiftUI Tutorials",
+              "url": "https://developer.apple.com/tutorials/swiftui"
+            },
+            {
+              "name": "Hacking with Swift (مجاني)",
+              "url": "https://www.hackingwithswift.com"
+            }
+          ]
+        },
+        {
+          "title": "Offline والأداء",
+          "weeks": 5,
+          "items": [
+            "Offline-first و Sync",
+            "Profiling (DevTools و Instruments)",
+            "حجم التطبيق وسرعة الفتح",
+            "مشروع: تطبيق بيشتغل بدون إنترنت"
+          ],
+          "resources": [
+            {
+              "name": "Flutter Performance",
+              "url": "https://docs.flutter.dev/perf"
+            },
+            {
+              "name": "React Native Performance",
+              "url": "https://reactnative.dev/docs/performance"
+            }
+          ]
+        },
+        {
+          "title": "الإنتاج والنمو",
+          "weeks": 5,
+          "items": [
+            "Release Automation (Fastlane)",
+            "In-app Purchases و Subscriptions",
+            "A/B Testing و Feature Flags",
+            "Code Review وقيادة فريق صغير"
+          ],
+          "resources": [
+            {
+              "name": "Fastlane Docs",
+              "url": "https://docs.fastlane.tools"
+            },
+            {
+              "name": "RevenueCat Docs",
+              "url": "https://www.revenuecat.com/docs"
             }
           ]
         }
@@ -1121,6 +1777,14 @@
             {
               "name": "AWS Free Tier",
               "url": "https://aws.amazon.com/free/"
+            },
+            {
+              "name": "GitHub Actions Docs",
+              "url": "https://docs.github.com/en/actions"
+            },
+            {
+              "name": "HashiCorp — Terraform Tutorials",
+              "url": "https://developer.hashicorp.com/terraform/tutorials"
             }
           ]
         },
@@ -1137,6 +1801,10 @@
             {
               "name": "Kubernetes Docs",
               "url": "https://kubernetes.io/docs/"
+            },
+            {
+              "name": "Prometheus Docs",
+              "url": "https://prometheus.io/docs/"
             }
           ]
         }
@@ -1155,6 +1823,10 @@
             {
               "name": "CKA Prep",
               "url": "https://kubernetes.io/docs/"
+            },
+            {
+              "name": "Argo CD Docs",
+              "url": "https://argo-cd.readthedocs.io"
             }
           ]
         },
@@ -1171,6 +1843,10 @@
             {
               "name": "HashiCorp Developer — دروس Terraform",
               "url": "https://developer.hashicorp.com/terraform/tutorials"
+            },
+            {
+              "name": "Ansible Docs",
+              "url": "https://docs.ansible.com"
             }
           ]
         },
@@ -1187,22 +1863,124 @@
             {
               "name": "Grafana Academy",
               "url": "https://grafana.com"
+            },
+            {
+              "name": "Prometheus Docs",
+              "url": "https://prometheus.io/docs/"
             }
           ]
         },
         {
-          "title": "SRE & Career",
+          "title": "SRE أساسيات",
           "weeks": 4,
           "items": [
             "SRE Principles",
             "Incident Management",
-            "Chaos Engineering",
-            "Interview Prep"
+            "Chaos Engineering Basics",
+            "مشروع: SLO Dashboard لخدمة"
           ],
           "resources": [
             {
               "name": "Google SRE Book",
               "url": "https://sre.google/sre-book/table-of-contents/"
+            },
+            {
+              "name": "PagerDuty Incident Response Guide",
+              "url": "https://response.pagerduty.com"
+            }
+          ]
+        }
+      ],
+      "advanced": [
+        {
+          "title": "Platform Engineering",
+          "weeks": 6,
+          "items": [
+            "Internal Developer Platform (Backstage)",
+            "Golden Paths و Templates",
+            "Multi-cluster Management",
+            "مشروع: منصة Self-service لفريق"
+          ],
+          "resources": [
+            {
+              "name": "Backstage Docs",
+              "url": "https://backstage.io/docs"
+            },
+            {
+              "name": "CNCF Landscape",
+              "url": "https://landscape.cncf.io"
+            },
+            {
+              "name": "Platform Engineering Community",
+              "url": "https://platformengineering.org"
+            }
+          ]
+        },
+        {
+          "title": "DevSecOps",
+          "weeks": 5,
+          "items": [
+            "Supply Chain: SBOM و Signing (Sigstore)",
+            "Policy as Code (OPA أو Kyverno)",
+            "Secrets Management (Vault)",
+            "فحص الثغرات داخل الـ Pipeline"
+          ],
+          "resources": [
+            {
+              "name": "Sigstore Docs",
+              "url": "https://docs.sigstore.dev"
+            },
+            {
+              "name": "SLSA Framework",
+              "url": "https://slsa.dev"
+            },
+            {
+              "name": "Vault Tutorials",
+              "url": "https://developer.hashicorp.com/vault/tutorials"
+            }
+          ]
+        },
+        {
+          "title": "التوسع والتكلفة",
+          "weeks": 5,
+          "items": [
+            "Autoscaling (HPA و KEDA و Karpenter)",
+            "FinOps: خفّض فاتورة الكلاود",
+            "Multi-region و Disaster Recovery",
+            "مختبر: تمرين DR كامل"
+          ],
+          "resources": [
+            {
+              "name": "KEDA Docs",
+              "url": "https://keda.sh/docs"
+            },
+            {
+              "name": "FinOps Foundation",
+              "url": "https://www.finops.org"
+            },
+            {
+              "name": "AWS Well-Architected",
+              "url": "https://aws.amazon.com/architecture/well-architected/"
+            }
+          ]
+        },
+        {
+          "title": "SRE متقدم",
+          "weeks": 6,
+          "items": [
+            "SLOs و Error Budgets بأرقام حقيقية",
+            "Capacity Planning",
+            "On-call صحي و Runbooks",
+            "شهادات: CKS أو AWS DevOps Professional"
+          ],
+          "resources": [
+            {
+              "name": "Google SRE Workbook",
+              "url": "https://sre.google/workbook/table-of-contents/"
+            },
+            {
+              "name": "LitmusChaos",
+              "url": "https://litmuschaos.io"
             }
           ]
         }
@@ -1223,6 +2001,10 @@
             {
               "name": "🎥 شرح Linux",
               "url": "https://youtu.be/sWbUDq4S6Y8"
+            },
+            {
+              "name": "Linux Journey",
+              "url": "https://linuxjourney.com"
             }
           ]
         },
@@ -1283,6 +2065,10 @@
             {
               "name": "🎥 دورة أمن شبكات (عربي)",
               "url": "https://youtube.com/playlist?list=PLh2Jy0nKL_j1WZMzITHgUuzaadpSULlMm"
+            },
+            {
+              "name": "Professor Messer (مجاني)",
+              "url": "https://professormesser.com"
             }
           ]
         },
@@ -1293,12 +2079,16 @@
             "CCNA Exam Prep",
             "CompTIA Network+",
             "Home Lab",
-            "LinkedIn & CV"
+            "توثيق الشبكة برسومات (Diagrams)"
           ],
           "resources": [
             {
               "name": "Boson Practice Exams",
               "url": "https://boson.com"
+            },
+            {
+              "name": "Jeremy's IT Lab (مجاني)",
+              "url": "https://youtube.com/@JeremysITLab"
             }
           ]
         }
@@ -1317,6 +2107,10 @@
             {
               "name": "INE",
               "url": "https://ine.com"
+            },
+            {
+              "name": "ipSpace.net — مقالات وندوات",
+              "url": "https://www.ipspace.net"
             }
           ]
         },
@@ -1333,6 +2127,10 @@
             {
               "name": "AWS Free Tier",
               "url": "https://aws.amazon.com/free/"
+            },
+            {
+              "name": "Azure Networking Docs",
+              "url": "https://learn.microsoft.com/en-us/azure/networking/"
             }
           ]
         },
@@ -1349,24 +2147,220 @@
             {
               "name": "Network Automation",
               "url": "https://github.com/networktocode"
+            },
+            {
+              "name": "Cisco DevNet (مختبرات مجانية)",
+              "url": "https://developer.cisco.com"
             }
           ]
         },
         {
-          "title": "CCNP و Career",
+          "title": "CCNP والتصميم",
           "weeks": 6,
           "items": [
             "CCNP Enterprise",
             "Network Design",
-            "Troubleshooting",
-            "Interview Prep"
+            "منهجية الـ Troubleshooting",
+            "مختبر: حل أعطال شبكة حقيقية"
           ],
           "resources": [
             {
               "name": "Cisco Learning Network",
               "url": "https://learningnetwork.cisco.com"
+            },
+            {
+              "name": "INE",
+              "url": "https://ine.com"
             }
           ]
+        }
+      ],
+      "advanced": [
+        {
+          "title": "تصميم شبكات المؤسسات",
+          "weeks": 6,
+          "items": [
+            "High Availability (HSRP و VRRP)",
+            "QoS",
+            "IPv6 بالكامل",
+            "مشروع: تصميم شبكة لشركة بـ ٣ فروع"
+          ],
+          "resources": [
+            {
+              "name": "Cisco Learning Network",
+              "url": "https://learningnetwork.cisco.com"
+            },
+            {
+              "name": "RIPE NCC Academy — IPv6 (مجاني)",
+              "url": "https://academy.ripe.net"
+            }
+          ]
+        },
+        {
+          "title": "مراكز البيانات",
+          "weeks": 6,
+          "items": [
+            "Spine-Leaf Architecture",
+            "VXLAN و EVPN",
+            "Data Center Automation",
+            "مختبر: EVPN بـ containerlab"
+          ],
+          "resources": [
+            {
+              "name": "containerlab",
+              "url": "https://containerlab.dev"
+            },
+            {
+              "name": "ipSpace.net",
+              "url": "https://www.ipspace.net"
+            }
+          ]
+        },
+        {
+          "title": "أمن الشبكات المتقدم",
+          "weeks": 5,
+          "items": [
+            "Zero Trust و NAC (802.1X)",
+            "Next-Gen Firewalls",
+            "Network Forensics",
+            "مختبر: Segmentation لشبكة"
+          ],
+          "resources": [
+            {
+              "name": "NIST SP 800-207 — Zero Trust",
+              "url": "https://csrc.nist.gov/pubs/sp/800/207/final"
+            },
+            {
+              "name": "Wireshark Docs",
+              "url": "https://wireshark.org"
+            }
+          ]
+        },
+        {
+          "title": "الأتمتة و NetDevOps",
+          "weeks": 6,
+          "items": [
+            "Python مع Nornir و NAPALM",
+            "Source of Truth (NetBox)",
+            "CI للشبكات (Batfish)",
+            "شهادات: CCNP أو CCIE أو DevNet"
+          ],
+          "resources": [
+            {
+              "name": "NetBox Docs",
+              "url": "https://netboxlabs.com/docs/netbox/"
+            },
+            {
+              "name": "Batfish",
+              "url": "https://batfish.org"
+            },
+            {
+              "name": "Cisco DevNet",
+              "url": "https://developer.cisco.com"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "goals": {
+    "job": {
+      "title": "أول وظيفة",
+      "weeks": 3,
+      "items": [
+        "مشروع التخرج: {capstone}",
+        "CV بصفحة وحدة بكلمات الإعلانات (ATS) + LinkedIn و GitHub مرتبين",
+        "ابحث بهالمسميات: {roles}",
+        "تدرّب على مقابلات تقنية وسلوكية (طريقة STAR)",
+        "قدّم على ٥ وظائف بالأسبوع وتابعها بجدول"
+      ],
+      "resources": [
+        {
+          "name": "Tech Interview Handbook (مجاني)",
+          "url": "https://www.techinterviewhandbook.org"
+        },
+        {
+          "name": "Pramp — مقابلات تجريبية مجانية",
+          "url": "https://www.pramp.com"
+        },
+        {
+          "name": "LinkedIn Jobs",
+          "url": "https://www.linkedin.com/jobs/"
+        }
+      ]
+    },
+    "freelance": {
+      "title": "أول عميل",
+      "weeks": 3,
+      "items": [
+        "مشروع التخرج: {capstone}",
+        "بروفايل احترافي على Upwork أو مستقل أو Fiverr",
+        "٣ نماذج أعمال قصيرة بصور ووصف للنتيجة",
+        "تسعير وكتابة عروض (Proposals) مقنعة",
+        "أول ٣ مشاريع صغيرة وتقييمات العملاء"
+      ],
+      "resources": [
+        {
+          "name": "Upwork Resources",
+          "url": "https://www.upwork.com/resources"
+        },
+        {
+          "name": "مستقل",
+          "url": "https://mostaql.com"
+        },
+        {
+          "name": "Fiverr",
+          "url": "https://www.fiverr.com"
+        }
+      ]
+    },
+    "switch": {
+      "title": "الانتقال لمجال الـ IT",
+      "weeks": 3,
+      "items": [
+        "مشروع التخرج: {capstone}",
+        "اكتب المهارات اللي بتنقلها من شغلك الحالي",
+        "مشروع بيحل مشكلة من مجالك الحالي",
+        "تعرّف على ناس بالمجال (Meetups و LinkedIn)",
+        "دوّر على تدريب أو دوام جزئي أو نقل داخلي"
+      ],
+      "resources": [
+        {
+          "name": "Tech Interview Handbook (مجاني)",
+          "url": "https://www.techinterviewhandbook.org"
+        },
+        {
+          "name": "roadmap.sh",
+          "url": "https://roadmap.sh"
+        },
+        {
+          "name": "Meetup",
+          "url": "https://www.meetup.com"
+        }
+      ]
+    },
+    "skill": {
+      "title": "تعميق المهارة",
+      "weeks": 3,
+      "items": [
+        "مشروع التخرج: {capstone}",
+        "اكتب مقال أو Thread عن شي تعلمته",
+        "مساهمة صغيرة بمشروع Open Source",
+        "علّم حدا غيرك — أحسن طريقة لتثبيت المعلومة",
+        "اختار مهارتك الجاية من roadmap.sh"
+      ],
+      "resources": [
+        {
+          "name": "roadmap.sh",
+          "url": "https://roadmap.sh"
+        },
+        {
+          "name": "First Contributions",
+          "url": "https://github.com/firstcontributions/first-contributions"
+        },
+        {
+          "name": "DEV Community",
+          "url": "https://dev.to"
         }
       ]
     }

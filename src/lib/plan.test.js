@@ -10,6 +10,10 @@ import {
   isComplete,
   itemKey,
   levelPlan,
+  nextLevel,
+  fillPlaceholders,
+  goalPhase,
+  GOAL_PHASES,
   progressOf,
   scaleWeeks,
   toArabicDigits,
@@ -42,7 +46,7 @@ test("levels pick the right roadmap", () => {
   assert.deepEqual(levelPlan("beginner"), { path: "beginner", reviewFirst: false });
   assert.deepEqual(levelPlan("basic"), { path: "beginner", reviewFirst: true });
   assert.deepEqual(levelPlan("intermediate"), { path: "intermediate", reviewFirst: false });
-  assert.deepEqual(levelPlan("advanced"), { path: "intermediate", reviewFirst: true });
+  assert.deepEqual(levelPlan("advanced"), { path: "advanced", reviewFirst: false });
 });
 
 test("plan timeline is continuous and totals add up", () => {
@@ -113,4 +117,51 @@ test("share link round-trips and rejects bad values", () => {
   assert.deepEqual(answersFromQuery("t=data&l=basic&h=20&g=evil"), { track: "data", level: "basic", hours: "20" });
   assert.equal(isComplete(full), true);
   assert.equal(isComplete({ ...full, device: undefined }), false);
+});
+
+test("every track has a real advanced roadmap, different from intermediate", () => {
+  for (const track of TRACKS) {
+    const adv = ROADMAPS[track.id].advanced;
+    assert.ok(Array.isArray(adv) && adv.length >= 3, track.id);
+    const inter = new Set(ROADMAPS[track.id].intermediate.map((p) => p.title));
+    assert.ok(adv.every((p) => !inter.has(p.title)), `${track.id} advanced repeats intermediate`);
+    const plan = buildPlan({ track: track.id, level: "advanced", hours: "10" });
+    assert.equal(plan.path, "advanced");
+    assert.equal(plan.phases[0].title, adv[0].title);
+  }
+});
+
+test("next level ladder", () => {
+  assert.equal(nextLevel("beginner"), "intermediate");
+  assert.equal(nextLevel("basic"), "intermediate");
+  assert.equal(nextLevel("intermediate"), "advanced");
+  assert.equal(nextLevel("advanced"), null);
+});
+
+test("goal phase closes the plan and is filled in for the track", () => {
+  const track = TRACKS.find((t) => t.id === "cyber");
+  for (const goal of ["job", "freelance", "switch", "skill"]) {
+    const plan = buildPlan({ ...full, goal });
+    const last = plan.phases.at(-1);
+    assert.equal(last.goal, goal);
+    assert.equal(last.number, plan.phases.length);
+    assert.equal(last.toWeek, plan.totalWeeks);
+    assert.ok(last.items.every((it) => !/\{\w+\}/.test(it)), `placeholder left in ${goal}`);
+    assert.ok(last.items.some((it) => it.includes(track.capstone)), `capstone missing in ${goal}`);
+    assert.equal(last.key, `cyber:goal-${goal}`);
+  }
+  const job = buildPlan({ ...full, goal: "job" }).phases.at(-1);
+  assert.ok(job.items.some((it) => it.includes(track.roles)));
+});
+
+test("plan without a goal (old share links) has no goal phase", () => {
+  const plan = buildPlan({ track: "frontend", level: "beginner", hours: "10" });
+  assert.equal(plan.phases.length, ROADMAPS.frontend.beginner.length);
+  assert.equal(goalPhase("nonsense", TRACKS[0]), null);
+});
+
+test("placeholders: unknown names are left visible instead of becoming 'undefined'", () => {
+  assert.equal(fillPlaceholders("Build {capstone}", { capstone: "a shop" }), "Build a shop");
+  assert.equal(fillPlaceholders("Hi {nope}", { capstone: "x" }), "Hi {nope}");
+  assert.deepEqual(Object.keys(GOAL_PHASES).sort(), ["freelance", "job", "skill", "switch"]);
 });

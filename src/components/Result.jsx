@@ -1,7 +1,7 @@
 import { useMemo, useState } from "react";
 import { B, card } from "../theme.js";
 import { GOALS, HOURS, LEVELS } from "../data/options.js";
-import { buildPlan, formatMonthYear, formatMonths, formatWeeks, itemKey, progressOf, toArabicDigits } from "../lib/plan.js";
+import { buildPlan, formatMonthYear, formatMonths, formatWeeks, itemKey, nextLevel, progressOf, toArabicDigits } from "../lib/plan.js";
 import { AISection, CommitSection, CourseraSection, DeviceNote, EnglishSection, ObstacleNote, PomodoroSection } from "./Guides.jsx";
 
 function Stat({ label, value, sub }) {
@@ -42,28 +42,34 @@ function Topic({ text, checked, onToggle }) {
 
 function Phase({ ph, prog, done, toggle, hours, last }) {
   const pct = Math.round((prog.done / prog.total) * 100);
+  const accent = ph.goal ? B.ok : B.or;
   const range = ph.fromWeek === ph.toWeek ? `الأسبوع ${toArabicDigits(ph.fromWeek)}` : `الأسابيع ${toArabicDigits(ph.fromWeek)}–${toArabicDigits(ph.toWeek)}`;
   return (
     <li style={{ display: "flex", gap: 14, listStyle: "none" }}>
       {/* timeline rail */}
       <div aria-hidden="true" className="no-print" style={{ display: "flex", flexDirection: "column", alignItems: "center", flexShrink: 0, width: 36 }}>
-        <div style={{ width: 36, height: 36, borderRadius: 99, background: prog.complete ? B.ok : B.or, display: "flex", alignItems: "center", justifyContent: "center", fontSize: 16, fontWeight: 800, color: B.w, boxShadow: `0 0 0 4px ${prog.complete ? B.ok : B.or}22`, transition: "background 0.3s" }}>
-          {prog.complete ? "✓" : toArabicDigits(ph.number)}
+        <div style={{ width: 36, height: 36, borderRadius: 99, background: prog.complete ? B.ok : accent, display: "flex", alignItems: "center", justifyContent: "center", fontSize: 16, fontWeight: 800, color: B.w, boxShadow: `0 0 0 4px ${prog.complete ? B.ok : accent}22`, transition: "background 0.3s" }}>
+          {prog.complete ? "✓" : ph.goal ? "🎯" : toArabicDigits(ph.number)}
         </div>
         {!last && <div style={{ flex: 1, width: 2, background: `linear-gradient(${B.or}88,${B.blL})`, marginTop: 4, minHeight: 20 }} />}
       </div>
 
-      <section className="print-card" aria-labelledby={`ph-${ph.key}`} style={{ ...card({ marginBottom: 18 }), flex: 1, minWidth: 0, borderColor: prog.complete ? `${B.ok}66` : B.blL }}>
-        <header style={{ background: `linear-gradient(90deg,${B.bl},${B.blL})`, padding: "14px 18px" }}>
+      <section className={`print-card${ph.goal ? " goal-phase" : ""}`} aria-labelledby={`ph-${ph.key}`} style={{ ...card({ marginBottom: 18 }), flex: 1, minWidth: 0, borderColor: prog.complete || ph.goal ? `${B.ok}66` : B.blL }}>
+        <header style={{ background: ph.goal ? `linear-gradient(90deg,${B.bl},${B.ok}33)` : `linear-gradient(90deg,${B.bl},${B.blL})`, padding: "14px 18px" }}>
           <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", gap: 10, flexWrap: "wrap" }}>
             <h3 id={`ph-${ph.key}`} style={{ color: B.w, fontSize: 18, fontWeight: 700, margin: 0 }}>
-              <span style={{ color: B.or }}>المرحلة {toArabicDigits(ph.number)}: </span>{ph.title}
+              <span style={{ color: accent }}>{ph.goal ? "مرحلة هدفك" : `المرحلة ${toArabicDigits(ph.number)}`}: </span>{ph.title}
             </h3>
             <span style={{ color: B.or, fontSize: 13, fontWeight: 600, background: `${B.or}22`, padding: "4px 12px", borderRadius: 99, whiteSpace: "nowrap" }}>{formatWeeks(ph.weeks)}</span>
           </div>
           <div style={{ color: B.g, fontSize: 12, marginTop: 6 }}>
             {range} · حوالي {toArabicDigits(ph.weeks * hours)} ساعة
           </div>
+          {ph.goal && (
+            <div style={{ marginTop: 10, color: B.gL, fontSize: 13, lineHeight: 1.6 }}>
+              هاي المرحلة مبنية على هدفك — فيك تبلّش فيها بالتوازي مع آخر مرحلتين.
+            </div>
+          )}
           {ph.review && (
             <div style={{ marginTop: 10, background: `${B.warn}18`, border: `1px solid ${B.warn}44`, color: B.warn, borderRadius: 10, padding: "8px 12px", fontSize: 13, lineHeight: 1.6 }}>
               🔁 مراجعة سريعة: إنت بتعرف جزء من هالمواضيع — علّم اللي بتتقنه كمنجز وركّز وقتك على الباقي.
@@ -136,7 +142,7 @@ function GuideTabs() {
   );
 }
 
-export function Result({ a, tips, done, toggle, startDate, onShare, onPrint, onEdit, onRestart }) {
+export function Result({ a, tips, done, toggle, startDate, onShare, onPrint, onEdit, onRestart, onLevelUp }) {
   const plan = useMemo(() => buildPlan(a, startDate ? new Date(startDate) : new Date()), [a, startDate]);
   const prog = progressOf(plan, done);
   const hours = Number(a.hours) || 15;
@@ -144,6 +150,7 @@ export function Result({ a, tips, done, toggle, startDate, onShare, onPrint, onE
   const hr = HOURS.find((h) => h.id === a.hours);
   const gl = GOALS.find((g) => g.id === a.goal);
   const nextPhase = plan.phases.find((_, i) => !prog.perPhase[i].complete);
+  const upLevel = LEVELS.find((l) => l.id === nextLevel(a.level));
 
   const btn = (primary) => ({ background: primary ? `linear-gradient(135deg,${B.or},${B.orD})` : B.blL, color: B.w, border: "none", padding: "11px 18px", borderRadius: 99, fontSize: 14, fontWeight: 600, cursor: "pointer", boxShadow: primary ? `0 4px 16px ${B.or}44` : "none" });
 
@@ -187,14 +194,16 @@ export function Result({ a, tips, done, toggle, startDate, onShare, onPrint, onE
         </div>
       )}
       {!nextPhase && (
-        <div style={{ ...card({ border: `1px solid ${B.ok}` }), padding: "18px 20px", color: B.w, fontSize: 16, fontWeight: 700, textAlign: "center" }}>
-          🎉 مبروك! خلصت كل مواضيع الخطة. وقت المشاريع الكبيرة والتقديم!
-        </div>
-      )}
-
-      {a.level === "advanced" && (
-        <div className="print-card" style={{ ...card({ border: `1px solid ${B.warn}44` }), padding: "14px 18px", color: B.gL, fontSize: 14, lineHeight: 1.8 }}>
-          ⚡ بما إن مستواك متقدم، هاي الخطة مبنية على المسار المتوسط — استعملها كقائمة تحقق: علّم كل شي بتتقنه، وركّز على المواضيع والشهادات اللي بتفرقك.
+        <div style={{ ...card({ border: `1px solid ${B.ok}` }), padding: "18px 20px", color: B.w, textAlign: "center" }}>
+          <div style={{ fontSize: 16, fontWeight: 700 }}>🎉 مبروك! خلصت كل مواضيع الخطة.</div>
+          {upLevel && onLevelUp ? (
+            <>
+              <p style={{ color: B.gL, fontSize: 14, margin: "8px 0 12px", lineHeight: 1.7 }}>جاهز للخطوة الجاية؟ المستوى «{upLevel.name}» بيكمّل من وين وقفت.</p>
+              <button type="button" className="btn no-print" onClick={() => onLevelUp(upLevel.id)} style={btn(true)}>🚀 انتقل لمستوى {upLevel.name}</button>
+            </>
+          ) : (
+            <p style={{ color: B.gL, fontSize: 14, margin: "8px 0 0", lineHeight: 1.7 }}>خلصت المسار المتقدم — وقت تعلّم غيرك وتختار تخصص جديد.</p>
+          )}
         </div>
       )}
 

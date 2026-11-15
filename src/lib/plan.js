@@ -5,6 +5,7 @@ import data from "../data/roadmaps.json" with { type: "json" };
 
 export const TRACKS = data.tracks;
 export const ROADMAPS = data.roadmaps;
+export const GOAL_PHASES = data.goals;
 
 // Phase lengths in roadmaps.json are written for a learner who studies
 // about 15 hours per week (a serious part-time pace). Everything else is
@@ -47,7 +48,7 @@ export function scaleWeeks(baseWeeks, hoursPerWeek) {
 //  beginner     -> beginner roadmap
 //  basic        -> beginner roadmap, phase 1 becomes a short review
 //  intermediate -> intermediate roadmap
-//  advanced     -> intermediate roadmap, phase 1 becomes a short review
+//  advanced     -> advanced roadmap
 export function levelPlan(level) {
   switch (level) {
     case "basic":
@@ -55,10 +56,28 @@ export function levelPlan(level) {
     case "intermediate":
       return { path: "intermediate", reviewFirst: false };
     case "advanced":
-      return { path: "intermediate", reviewFirst: true };
+      return { path: "advanced", reviewFirst: false };
     default:
       return { path: "beginner", reviewFirst: false };
   }
+}
+
+// The level to suggest once every topic of the current plan is done.
+const NEXT_LEVEL = { beginner: "intermediate", basic: "intermediate", intermediate: "advanced" };
+export function nextLevel(level) {
+  return NEXT_LEVEL[level] ?? null;
+}
+
+// Goal phases may say "{capstone}" or "{roles}"; the track fills them in.
+export function fillPlaceholders(text, track) {
+  return text.replace(/\{(\w+)\}/g, (match, name) => (typeof track[name] === "string" ? track[name] : match));
+}
+
+/** The closing phase for the learner's goal (job, freelance, ...), or null. */
+export function goalPhase(goal, track) {
+  const src = GOAL_PHASES?.[goal];
+  if (!src) return null;
+  return { ...src, items: src.items.map((it) => fillPlaceholders(it, track)), goal };
 }
 
 /**
@@ -90,6 +109,23 @@ export function buildPlan(answers, start = new Date()) {
     week += weeks;
     return phase;
   });
+
+  // Every plan ends with the learner's goal: first job, first client, ...
+  const closing = goalPhase(answers.goal, track);
+  if (closing) {
+    const weeks = scaleWeeks(closing.weeks, hours);
+    phases.push({
+      ...closing,
+      index: phases.length,
+      number: phases.length + 1,
+      review: false,
+      weeks,
+      fromWeek: week,
+      toWeek: week + weeks - 1,
+      key: `${track.id}:goal-${closing.goal}`,
+    });
+    week += weeks;
+  }
 
   const totalWeeks = week - 1;
   const finish = new Date(start);

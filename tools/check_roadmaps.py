@@ -4,12 +4,17 @@
 It makes sure every roadmap shown on the site is complete and consistent:
 
 * every track in "tracks" has a roadmap for each required level
+  (beginner, intermediate, advanced) plus a capstone project and job titles
+* there is one closing "goal" phase for every wizard goal (job, freelance,
+  switch, skill); its topics may use the placeholders {capstone} and {roles}
 * every phase has a title, a sensible number of weeks, 3-8 topics and
   at least one resource
 * every resource has a name and an https:// URL, with no duplicate URL
   inside the same phase
 * no resource points at a site we know is retired or has moved
 * the total length of each roadmap is in a realistic range
+* warnings: phases with a single resource, and arrows (← →) in topic text,
+  which flip direction when Arabic and Latin words are mixed (bidi)
 
 Optional: ``--links`` also opens every unique URL and reports the ones that
 do not answer with a 2xx/3xx status (needs internet access).
@@ -28,6 +33,7 @@ from __future__ import annotations
 import argparse
 import concurrent.futures
 import json
+import re
 import sys
 import urllib.error
 import urllib.request
@@ -37,7 +43,11 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent.parent
 DEFAULT_DATA = ROOT / "src" / "data" / "roadmaps.json"
 
-REQUIRED_LEVELS = ("beginner", "intermediate")
+REQUIRED_LEVELS = ("beginner", "intermediate", "advanced")
+GOAL_IDS = ("job", "freelance", "switch", "skill")  # must match src/data/options.js
+PLACEHOLDERS = ("capstone", "roles")             # filled in from the track by src/lib/plan.js
+MIN_GOAL_WEEKS, MAX_GOAL_WEEKS = 2, 6
+ARROWS = "←→⟵⟶⇐⇒"
 MIN_ITEMS, MAX_ITEMS = 3, 8
 MIN_WEEKS, MAX_WEEKS = 1, 12          # per phase, at ~15 hours/week
 MIN_TOTAL, MAX_TOTAL = 12, 36         # per roadmap, at ~15 hours/week
@@ -72,6 +82,13 @@ class Report:
 
 def _nonempty_str(value) -> bool:
     return isinstance(value, str) and value.strip() != ""
+
+
+def _placeholders(text) -> list[str]:
+    """Names used as {name} inside a topic text."""
+    if not isinstance(text, str):
+        return []
+    return re.findall(r"\{([^{}]*)\}", text)
 
 
 def check_resource(where: str, res, report: Report) -> None:
@@ -109,6 +126,7 @@ def check_phase(where: str, phase, report: Report) -> int:
     items = phase.get("items")
     if not isinstance(items, list) or not items:
         report.error(where, "phase has no topics (items)")
+        items = []
     else:
         if not MIN_ITEMS <= len(items) <= MAX_ITEMS:
             report.error(where, f"{len(items)} topics, expected {MIN_ITEMS}-{MAX_ITEMS}")
@@ -119,6 +137,11 @@ def check_phase(where: str, phase, report: Report) -> int:
             if item in seen:
                 report.error(where, f"duplicate topic: {item}")
             seen.add(item)
+            if isinstance(item, str) and any(a in item for a in ARROWS):
+                report.warn(where, f"arrow in topic may render reversed in RTL: {item}")
+            for name in _placeholders(item):
+                if name not in PLACEHOLDERS:
+                    report.error(where, f"unknown placeholder {{{name}}} in: {item}")
 
     resources = phase.get("resources")
     if not isinstance(resources, list) or not resources:
@@ -131,6 +154,8 @@ def check_phase(where: str, phase, report: Report) -> int:
             if url in urls:
                 report.error(where, f"duplicate resource url {url}")
             urls.add(url)
+        if len(resources) == 1:
+            report.warn(where, "only one resource (2+ gives learners a fallback)")
     return weeks
 
 
@@ -158,6 +183,9 @@ def check_data(data, report: Report | None = None) -> Report:
         for key in ("id", "name", "icon", "desc"):
             if not _nonempty_str(track.get(key)):
                 report.error(where, f"missing '{key}'")
+        for key in PLACEHOLDERS:
+            if not _nonempty_str(track.get(key)):
+                report.error(where, f"missing '{key}' (used by the goal phase)")
         if track.get("id") in ids:
             report.error(where, f"duplicate track id {track.get('id')}")
         ids.append(track.get("id"))
@@ -189,17 +217,38 @@ def check_data(data, report: Report | None = None) -> Report:
             )
             if total and not MIN_TOTAL <= total <= MAX_TOTAL:
                 report.warn(where, f"total {total} weeks, expected {MIN_TOTAL}-{MAX_TOTAL}")
+            if any(_placeholders(i) for ph in phases if isinstance(ph, dict) for i in ph.get("items") or []):
+                report.error(where, "placeholders like {capstone} only work in goal phases")
+
+    check_goals(data.get("goals"), report)
     return report
+
+
+def check_goals(goals, report: Report) -> None:
+    """The closing phase that is added to every plan, one per wizard goal."""
+    if not isinstance(goals, dict):
+        report.error("goals", "missing 'goals' object (one closing phase per goal)")
+        return
+    for goal in GOAL_IDS:
+        if goal not in goals:
+            report.error("goals", f"missing goal '{goal}'")
+    for goal, phase in goals.items():
+        where = f"goals/{goal}"
+        if goal not in GOAL_IDS:
+            report.warn(where, "goal is not offered in the wizard")
+        weeks = check_phase(where, phase, report)
+        if weeks and not MIN_GOAL_WEEKS <= weeks <= MAX_GOAL_WEEKS:
+            report.error(where, f"weeks={weeks} is outside {MIN_GOAL_WEEKS}-{MAX_GOAL_WEEKS}")
 
 
 def all_urls(data) -> list[str]:
     urls = set()
-    for levels in data.get("roadmaps", {}).values():
-        for phases in levels.values():
-            for phase in phases:
-                for res in phase.get("resources", []):
-                    if isinstance(res, dict) and _nonempty_str(res.get("url")):
-                        urls.add(res["url"])
+    phases = [ph for levels in data.get("roadmaps", {}).values() for level in levels.values() for ph in level]
+    phases += list((data.get("goals") or {}).values())
+    for phase in phases:
+        for res in phase.get("resources", []):
+            if isinstance(res, dict) and _nonempty_str(res.get("url")):
+                urls.add(res["url"])
     return sorted(urls)
 
 
